@@ -296,21 +296,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Define the showSection function
-    function showSection(sectionId) {
-        // Masquer toutes les sections
-        var sections = document.querySelectorAll('section');
-        sections.forEach(function(section) {
-            section.style.display = 'none';
-        });
+// Define the showSection function outside of the DOMContentLoaded event
+function showSection(sectionId) {
+    // Hide all sections
+    var sections = document.querySelectorAll('section');
+    sections.forEach(function(section) {
+        section.style.display = 'none';
+    });
 
-        // Afficher la section sélectionnée
-        var selectedSection = document.getElementById(sectionId);
-        if (selectedSection) {
-            selectedSection.style.display = 'block';
-        }
+    // Show the selected section
+    var selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the page with the default section (e.g., 'accueil')
+    showSection('accueil');
 
 // Charger le fichier CSV en utilisant PapaParse
 Papa.parse('la_bonne_boite.csv', {
