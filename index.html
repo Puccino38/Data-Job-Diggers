@@ -153,10 +153,10 @@
 
 <nav>
     <div class="nav-site-links">
-        <a href="#accueil" onclick="showSection('accueil')">Accueil</a>
-        <a href="#analyse-de-donnée" onclick="showSection('analyse-de-donnée')">Analyse de données</a>
-        <a href="#dig-ton-data-job" onclick="showSection('dig-ton-data-job')">Dig Ton Data Job</a>
-        <a href="#a-propos" onclick="showSection('a-propos')">À Propos de Nous</a>
+        <a href="#accueil" onclick="showSection('accueil'); return false;">Accueil</a>
+        <a href="#analyse-de-donnée" onclick="showSection('analyse-de-donnée'); return false;">Analyse de données</a>
+        <a href="#dig-ton-data-job" onclick="showSection('dig-ton-data-job'); return false;">Dig Ton Data Job</a>
+        <a href="#a-propos" onclick="showSection('a-propos'); return false;">À Propos de Nous</a>
     </div>
     <div class="nav-social-links">
         <a href="https://www.linkedin.com" target="_blank">
@@ -299,7 +299,7 @@
 document.addEventListener('DOMContentLoaded', function() {
         // Now place showSection here, inside the DOMContentLoaded event
         showSection('analyse-de-donnée');
-        
+
 function showSection(sectionId) {
     // Masquer toutes les sections
     var sections = document.querySelectorAll('section');
