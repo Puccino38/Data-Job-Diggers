@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script>
+    showSection('analyse-de-donnée');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Job Diggers</title>
     <style>
-
         .member-row {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
         .team-member {
-        display: flex;
-        align-items: center;
-        margin: 0 10px;
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
         }
 
         .team-member img {
@@ -33,22 +37,24 @@
             text-align: center;
             background-color: #e6f2e4;
         }
+
         header {
             min-height: 224px;
-            background-image: url('matrix_background3.png'); 
-            background-size: cover; 
+            background-image: url('matrix_background3.png');
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position: center; 
+            background-position: center;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
+
         nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #3c6e47;
-        padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3c6e47;
+            padding: 10px;
         }
 
         .nav-site-links a, .nav-social-links a {
@@ -69,6 +75,13 @@
         section {
             padding: 20px;
         }
+
+        section#a-propos {
+        display: none; /* Add this line to hide the section by default */
+        }
+        section#analyse-de-donnée {
+        display: none; /* Add this line to hide the section by default */
+        }
         footer {
             background-color: #2a5233;
             color: #fff;
@@ -78,24 +91,26 @@
             bottom: 0;
             width: 100%;
         }
+
         .social-icon {
-        width: 25px;
-        height: 25px;
-        fill: currentColor;
-        vertical-align: middle;
+            width: 25px;
+            height: 25px;
+            fill: currentColor;
+            vertical-align: middle;
         }
 
         .linkedin-icon {
-        fill: #478AF5;
+            fill: #478AF5;
         }
 
         .indeed-icon {
-        fill: #2314EB;
+            fill: #2314EB;
         }
 
         .jungle-icon {
-        fill: #f3da35;
+            fill: #f3da35;
         }
+
         .side-menu {
             position: fixed;
             left: 0;
@@ -129,16 +144,16 @@
         }
 
         .menu-item input {
-            box-sizing: border-box; /* Fixes padding issue */
+            box-sizing: border-box;
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="Data_job_diggers.png" alt="Job Diggers Logo" height="250" width="250"/>
-    </header>
+<header>
+    <img src="Data_job_diggers.png" alt="Job Diggers Logo" height="250" width="250"/>
+</header>
 
-    <nav>
+<nav>
     <div class="nav-site-links">
         <a href="#accueil" onclick="showSection('accueil')">Accueil</a>
         <a href="#analyse-de-donnée" onclick="showSection('analyse-de-donnée')">Analyse de données</a>
@@ -146,7 +161,7 @@
         <a href="#a-propos" onclick="showSection('a-propos')">À Propos de Nous</a>
     </div>
     <div class="nav-social-links">
-            <a href="https://www.linkedin.com" target="_blank">
+        <a href="https://www.linkedin.com" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" class="social-icon linkedin-icon" viewBox="0 0 16 16"> 
                     <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/> 
                 </svg>
@@ -172,18 +187,17 @@
         Le sujet choisi est data jobs. Nous vous proposons donc un outil pour vous aider à trouver un job dans la data.<br>
         Que vous soyez data analyst, data scientist ou data engineer,<br>
         vous trouverez grâce à notre outil, les annonces correspondant à vos besoins.<br>
-        Nous avons également fais une étude exploratoire de la base de donnée que nous avons obtenu par scrapping sur différents sites web.
+        Nous avons également fais une étude exploratoire de la base de donnée que nous avons obtenu avec les différentes API de pôle emploi/France travail.
     </p>
 
     </section>
 
-    <section id="analyse-de-donnée" style="display: none;">
+    <section id="analyse-de-donnée">
         <h2>Analyse de données</h2>
-        <!-- Contenu de la section Analyse de données -->
-        <!-- Intégration des graphiques) -->
-        <!-- Exemple de placeholder -->
         <div id="Chart">
-            Graphiques à insérer ici...
+            <canvas id="graphique1" width="400" height="400"></canvas>
+            <canvas id="graphique2" width="400" height="400"></canvas>
+            <canvas id="graphique3" width="400" height="400"></canvas>
         </div>
     </section>
         <section id="dig-ton-data-job" style="display: none;">
@@ -296,8 +310,48 @@
             selectedSection.style.display = 'block';
         }
     }
-</script>
+        // Charger le fichier CSV en utilisant papaparse
+        Papa.parse('la_bonne_boite.csv', {
+        header: true,
+        dynamicTyping: true,
+        download: true,
+        complete: function (results) {
+            var data = results.data; // Les données CSV sont stockées dans la variable data
 
+            // Vous pouvez désormais utiliser les données pour créer vos graphiques
+            var regions = data.map(row => row.Estimated_Region); // Les régions
+            var nbEntreprises = data.map(row => row.Nombre_d_Entreprises); // Nombre d'entreprises par région
+            var potentielEmbauche = data.map(row => row.Potentiel_d_embauche); // Potentiel d'embauche moyen par région
+
+            var ctx1 = document.getElementById('graphique1').getContext('2d');
+            var graphique1 = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: regions,
+                    datasets: [{
+                        label: 'Nombre d\'entreprises',
+                        data: nbEntreprises,
+                        backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                        borderColor: 'rgba(0, 123, 255, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+        // Show the "Analyse de données" section
+        document.getElementById('analyse-de-donnée').style.display = 'block';
+
+        // Répétez pour the other charts as needed...
+    }
+});
+    </script>
 </body>
 </html>
 
