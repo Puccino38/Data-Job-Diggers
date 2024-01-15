@@ -195,9 +195,9 @@
     <section id="analyse-de-donnée">
         <h2>Analyse de données</h2>
         <div id="Chart">
-            <canvas id="graphique1" width="400" height="400"></canvas>
-            <canvas id="graphique2" width="400" height="400"></canvas>
-            <canvas id="graphique3" width="400" height="400"></canvas>
+            <canvas id="graphique1" width="200" height="200"></canvas>
+            <canvas id="graphique2" width="200" height="200"></canvas>
+            <canvas id="graphique3" width="200" height="200"></canvas>
         </div>
     </section>
         <section id="dig-ton-data-job" style="display: none;">
@@ -291,67 +291,158 @@
     </section>
 
     <footer>
-        <p>&copy; 2023 Job Diggers. Tous droits réservés.</p>
-    <!-- Adding external links -->
-    
-    </footer>
+    <p>&copy; 2023 Job Diggers. Tous droits réservés.</p>
+</footer>
 
-    <<script>
-    function showSection(sectionId) {
-        // Masquer toutes les sections
-        var sections = document.querySelectorAll('section');
-        sections.forEach(function(section) {
-            section.style.display = 'none';
+<script>
+function showSection(sectionId) {
+    // Masquer toutes les sections
+    var sections = document.querySelectorAll('section');
+    sections.forEach(function(section) {
+        section.style.display = 'none';
+    });
+
+    // Afficher la section sélectionnée
+    var selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+    }
+}
+
+// Charger le fichier CSV en utilisant PapaParse
+Papa.parse('la_bonne_boite.csv', {
+    header: true,
+    dynamicTyping: true,
+    download: true,
+    complete: function (results) {
+        var data = results.data;
+
+        // Chart 1: Nombre d'Entreprises par Région Estimée
+        const regionCounts = {};
+        data.forEach(item => {
+            regionCounts[item.Estimated_Region] = (regionCounts[item.Estimated_Region] || 0) + 1;
         });
 
-        // Afficher la section sélectionnée
-        var selectedSection = document.getElementById(sectionId);
-        if (selectedSection) {
-            selectedSection.style.display = 'block';
-        }
-    }
-        // Charger le fichier CSV en utilisant papaparse
-        Papa.parse('la_bonne_boite.csv', {
-        header: true,
-        dynamicTyping: true,
-        download: true,
-        complete: function (results) {
-            var data = results.data; // Les données CSV sont stockées dans la variable data
+        const barChartData = {
+            labels: Object.keys(regionCounts),
+            datasets: [{
+                label: 'Nombre d\'Entreprises',
+                data: Object.values(regionCounts),
+                backgroundColor: 'blue',
+            }]
+        };
 
-            // Vous pouvez désormais utiliser les données pour créer vos graphiques
-            var regions = data.map(row => row.Estimated_Region); // Les régions
-            var nbEntreprises = data.map(row => row.Nombre_d_Entreprises); // Nombre d'entreprises par région
-            var potentielEmbauche = data.map(row => row.Potentiel_d_embauche); // Potentiel d'embauche moyen par région
-
-            var ctx1 = document.getElementById('graphique1').getContext('2d');
-            var graphique1 = new Chart(ctx1, {
-                type: 'bar',
-                data: {
-                    labels: regions,
-                    datasets: [{
-                        label: 'Nombre d\'entreprises',
-                        data: nbEntreprises,
-                        backgroundColor: 'rgba(0, 123, 255, 0.5)',
-                        borderColor: 'rgba(0, 123, 255, 1)',
-                        borderWidth: 1
-                    }]
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Nombre d\'Entreprises par Région Estimée'
                     }
                 }
+            }
+        });
+
+        // Chart 2: Moyenne du Potentiel d'Embauche par Région Estimée
+        const regionSums = {};
+        const regionCountsForAverage = {};
+        data.forEach(item => {
+            if (!regionSums[item.Estimated_Region]) {
+                regionSums[item.Estimated_Region] = 0;
+                regionCountsForAverage[item.Estimated_Region] = 0;
+            }
+            regionSums[item.Estimated_Region] += item.Potentiel_d_embauche;
+            regionCountsForAverage[item.Estimated_Region]++;
+        });
+
+        const averages = Object.keys(regionSums).map(key => regionSums[key] / regionCountsForAverage[key]);
+
+        const averageChartData = {
+            labels: Object.keys(regionSums),
+            datasets: [{
+                label: 'Moyenne du Potentiel d\'Embauche',
+                data: averages,
+                backgroundColor: 'green',
+            }]
+        };
+
+        const ctxAverage = document.getElementById('averageChart').getContext('2d');
+        const averageChart = new Chart(ctxAverage, {
+            type: 'bar',
+            data: averageChartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Moyenne du Potentiel d\'Embauche par Région Estimée'
+                    }
+                }
+            }
+        });
+
+        // Chart 3: Distribution des Potentiels d'Embauche
+        function createHistogramData(data, binSize) {
+            const maxVal = Math.max(...data);
+            const numBins = Math.ceil(maxVal / binSize);
+            const bins = new Array(numBins).fill(0);
+
+            data.forEach(val => {
+                bins[Math.floor(val / binSize)]++;
             });
 
-        // Show the "Analyse de données" section
-        document.getElementById('analyse-de-donnée').style.display = 'block';
+            return bins.map((count, index) => ({
+            bin: ${index * binSize}-${(index + 1) * binSize},
+            count
+            }));
+            }
+        const histogramData = createHistogramData(data.map(item => item.Potentiel_d_embauche), 5); // Adjust bin size as needed
 
-        // Répétez pour the other charts as needed...
-    }
+    const histogramChartData = {
+        labels: histogramData.map(item => item.bin),
+        datasets: [{
+            label: 'Distribution des Potentiels d\'Embauche',
+            data: histogramData.map(item => item.count),
+            backgroundColor: 'red',
+        }]
+    };
+
+    const ctxHistogram = document.getElementById('histogramChart').getContext('2d');
+    const histogramChart = new Chart(ctxHistogram, {
+        type: 'bar',
+        data: histogramChartData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Distribution des Potentiels d\'Embauche'
+                }
+            }
+        }
+    });
+
+    // Show the "Analyse de données" section
+    document.getElementById('analyse-de-donnée').style.display = 'block';
+}
 });
-    </script>
+</script>
+
 </body>
 </html>
-
