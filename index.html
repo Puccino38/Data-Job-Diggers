@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script>
+        d3.csv("la_bonne_boite.csv", function(data1) {
+            // Traiter les données du premier fichier et créer des graphiques
+        });
+        
+        d3.csv("pole_emploi_data.csv", function(data2) {
+            // Traiter les données du deuxième fichier et créer des graphiques
+        });
+
+        d3.csv("rome_competence.csv", function(data3) {
+            // Traiter les données du deuxième fichier et créer des graphiques
+        });
+    </script>
+    <script>
+        // Assurez-vous que cette fonction est bien définie dans la balise <head> ou juste avant la fermeture de la balise <body>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+    
+            // Show the selected section
+            var selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+        }
+        </script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     
@@ -74,12 +106,15 @@
             padding: 20px;
         }
 
-        section#a-propos {
-        display: none; /* Add this line to hide the section by default */
+        section {
+            display: none;
         }
-        section#analyse-de-donnée {
-        display: none; /* Add this line to hide the section by default */
+
+        /* Show the default section */
+        section#accueil {
+            display: block;
         }
+
         footer {
             background-color: #2a5233;
             color: #fff;
@@ -148,7 +183,7 @@
 </head>
 <body>
 <header>
-    <img src="Data_job_diggers.png" alt="Job Diggers Logo" height="250" width="250"/>
+    <img src="assets/Data_job_diggers.png" alt="Job Diggers Logo" height="250" width="250"/>
 </header>
 
 <nav>
@@ -181,52 +216,118 @@
 
     <section id="accueil">
     <h2>Accueil</h2>
-    <p> La Data Job Diggers team est composée d'Elvina, Vincent, Fred et Julien. Nous vous présentons notre projet 3.<br>
+    <p> <strong>La Data Job Diggers team est composée d'Elvina, Vincent, Fred et Julien. Nous vous présentons notre projet 3.<br>
+        <br>
         Le sujet choisi est data jobs. Nous vous proposons donc un outil pour vous aider à trouver un job dans la data.<br>
-        Que vous soyez data analyst, data scientist ou data engineer,<br>
-        vous trouverez grâce à notre outil, les annonces correspondant à vos besoins.<br>
-        Nous avons également fais une étude exploratoire de la base de donnée que nous avons obtenu avec les différentes API de pôle emploi/France travail.
+        <br>
+        Que vous soyez data analyst, data scientist ou data engineer,vous trouverez grâce à notre outil, les annonces correspondant à vos besoins.<br>
+        <br>
+        Nous avons également fais une étude exploratoire des bases de données que nous avons obtenu avec les différentes API de pôle emploi/France travail.</strong>
     </p>
 
     </section>
 
     <section id="analyse-de-donnée">
         <h2>Analyse de données</h2>
-        <div id="Chart">
-            <canvas id="barChart" width="200" height="200"></canvas>
-            <canvas id="averageChart" width="200" height="200"></canvas>
-            <canvas id="histogramChart" width="200" height="200"></canvas>
+        
+        <div id="graphContainer">
+            <div id="Chart" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                <div class="graph">
+                    <iframe src="fig_city.html" width="600" height="400" frameborder="0"></iframe>
+                </div>
+                <div class="description">
+                    <p>
+                        <strong>Nombre d'Offres d'Emploi par Département</strong><br>
+                        Ce graphique présente la répartition des offres d'emploi dans différents départements.
+                        Les départements sont affichés sur l'axe des x, et le nombre d'offres d'emploi sur l'axe des y.
+                        Il révèle quels départements ont le plus grand nombre d'offres d'emploi.
+                    </p>
+                </div>
+                <div class="graph">
+                    <iframe src="fig_dept.html" width="600" height="400" frameborder="0"></iframe>
+                </div>
+                <div class="description">
+                    <p>
+                        <strong>Nombre d'Offres d'Emploi par Ville</strong><br>
+                        Ce graphique illustre la distribution des offres d'emploi dans différentes villes.
+                        Les villes sont affichées sur l'axe des x, et le nombre d'offres d'emploi sur l'axe des y.
+                    </p>
+                </div>
+                <div class="graph">
+                    <iframe src="fig_job_type.html" width="600" height="400" frameborder="0"></iframe>
+                </div>
+                <div class="description">
+                    <p>
+                        <strong>Top 3 Types d'Emplois par Nombre d'Offres d'Emploi</strong><br>
+                        Ce graphique se concentre sur les trois principaux types d'emplois en fonction du nombre d'offres d'emploi.
+                        Les types d'emploi, à savoir "data analyste," "data scientist," et "data engineer," sont représentés sur l'axe des x.
+                        L'axe des y affiche le nombre d'offres d'emploi pour chaque type d'emploi.
+                    </p>
+                </div>
+                <div class="graph">
+                    <iframe src="fig_date.html" width="600" height="400" frameborder="0"></iframe>
+                </div>
+                <div class="description">
+                    <p>
+                        <strong>Fréquence des Offres d'Emploi par Date de Création</strong><br>
+                        Ce graphique présente la fréquence des offres d'emploi en fonction de leur date de création.
+                        L'axe des x représente les dates, et l'axe des y affiche le nombre d'offres d'emploi créées à chaque date.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
-        <section id="dig-ton-data-job" style="display: none;">
-            <h2>Dig Ton Data Job</h2>
-            <<div class="side-menu">
+    <section id="dig-ton-data-job" style="display: none;">
+        <h2>Dig Ton Data Job</h2>
+    
+        <!-- Charger le fichier CSV en utilisant PapaParse -->
+        <script>
+            Papa.parse('mnt/data/filtered_data.csv', {
+                header: true, // Indiquez si la première ligne du CSV contient les en-têtes des colonnes
+                dynamicTyping: true, // Convertit automatiquement les valeurs en nombres si possible
+                download: true, // Téléchargez le fichier CSV (assurez-vous qu'il est accessible depuis votre site web)
+                complete: function (results) {
+                    var data = results.data; // Les données CSV chargées seront stockées dans cette variable
+                        
+                    // Vous pouvez maintenant traiter les données ici
+                    console.log(data); // Affiche les données dans la console
+                }
+            });
+        </script>
+    
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/f4061229-d927-4426-b86d-a661e721e2c3/webchat/config.js" defer></script>
+    
+        <div class="side-menu">
             <div class="menu-item">
-            <label for="metier">Métier data recherché:</label>
-            <select id="metier">
-                <option value="data-analyst">Data Analyst</option>
-                <option value="data-scientist">Data Scientist</option>
-                <option value="data-engineer">Data Engineer</option>
-            </select>
+                <label for="metier">Métier data recherché:</label>
+                <select id="metier">
+                    <option value="data-analyst">Data Analyst</option>
+                    <option value="data-scientist">Data Scientist</option>
+                    <option value="data-engineer">Data Engineer</option>
+                </select>
             </div>
             <div class="menu-item">
-            <label for="contrat">Type de contrat:</label>
-            <select id="contrat">
-                <option value="full-time">Temps plein</option>
-                <option value="part-time">Mi-temps</option>
-                <option value="internship">Stage</option>
-            </select>
+                <label for="contrat">Type de contrat:</label>
+                <select id="contrat">
+                    <option value="full-time">Temps plein</option>
+                    <option value="part-time">Mi-temps</option>
+                    <option value="internship">Stage</option>
+                </select>
             </div>
             <div class="menu-item">
-            <label for="ville">Ville:</label>
-            <input type="text" id="ville" placeholder="Entrez votre ville">
+                <label for="ville">Ville:</label>
+                <input type="text" id="ville" placeholder="Entrez votre ville">
             </div>
-            </div>
-            <div id="llm-placeholder">
-                affichage des annonces ici...
-            </div>
-        </section>
+        </div>
+    
+        <div id="llm-placeholder">
+            Affichage des annonces ici...
+        </div>
+    </section>
+    
 
+        
     <section id="a-propos">
     <h2>À Propos de Nous</h2>
     <p>L'équipe Job digger est composée de 4 membres de la cession remote data 09/23 de la Wild Code School.</p>
@@ -236,7 +337,7 @@
             <!-- Première ligne -->
             <div class="team-member">
                 <a href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAABsQQ_YBYQQfIieca2HmFq7Q1eXFnONRBm8&keywords=Elvina%20Joyeux&origin=ENTITY_SEARCH_HOME_HISTORY&sid=(Us" target="_blank">
-                    <img src="Elvina.png" alt="image d'Elvina" height="100" width="100"/>
+                    <img src="assets/Elvina.png" alt="image d'Elvina" height="100" width="100"/>
                 </a>
                 <div class="member-info">
                     <p>Elvina Joyeux</p>
@@ -248,7 +349,7 @@
             </div>
             <div class="team-member">
                 <a href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAADaTXjgBdVJLxMtx-3TuQGTkluYGSYzve50&keywords=vincent%20corvaisier&origin=RICH_QUERY_SEARCH_HOME_HISTORY&sid=OC*" target="_blank">
-                    <img src="vincent.jpg" alt="image de Vincent" height="100" width="100"/>
+                    <img src="assets/vincent.jpg" alt="image de Vincent" height="100" width="100"/>
                 </a>
                 <div class="member-info">
                     <p>Vincent Corvaisier</p>
@@ -264,7 +365,7 @@
             <!-- Deuxième ligne -->
             <div class="team-member">
                 <a href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAAEbiKfoBnW0Cy2dkauLkoS0ESLV6jQnPs_4&keywords=Fr%C3%A9d%C3%A9ric%20Laleuf&origin=ENTITY_SEARCH_HOME_HISTORY&sid=YGp" target="_blank">
-                    <img src="fred.jpg" alt="image de Frédéric" height="100" width="100"/>
+                    <img src="assets/fred.jpg" alt="image de Frédéric" height="100" width="100"/>
                 </a>
                 <div class="member-info">
                     <p>Frédéric Laleuf</p>
@@ -275,7 +376,7 @@
             </div>
             <div class="team-member">
                 <a href="linkedin.com/in/julien-ribezzo-84668b63" target="_blank">
-                    <img src="Julien.JPG" alt="image de Julien" height="100" width="100"/>
+                    <img src="assets/Julien.JPG" alt="image de Julien" height="100" width="100"/>
                 </a>
                 <div class="member-info">
                     <p>Julien Ribezzo</p>
@@ -295,28 +396,32 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
-<script>
-// Define the showSection function outside of the DOMContentLoaded event
-function showSection(sectionId) {
-    // Hide all sections
-    var sections = document.querySelectorAll('section');
-    sections.forEach(function(section) {
-        section.style.display = 'none';
-    });
+</style>
 
-    // Show the selected section
-    var selectedSection = document.getElementById(sectionId);
-    if (selectedSection) {
-        selectedSection.style.display = 'block';
-    }
-}
+    <!-- Scripts and Function Definition -->
+    <script>
+    // // Define showSection at the top of the script
+    // function showSection(sectionId) {
+    // console.log("showSection called with: " + sectionId);
+    //     // Hide all sections
+    //     var sections = document.querySelectorAll('section');
+    //     sections.forEach(function(section) {
+    //         section.style.display = 'none';
+    //     });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the page with the default section (e.g., 'accueil')
-    showSection('accueil');
+    //     // Show the selected section
+    //     var selectedSection = document.getElementById(sectionId);
+    //     if (selectedSection) {
+    //     selectedSection.style.display = 'block';
+    //     }}
 
-// Charger le fichier CSV en utilisant PapaParse
-Papa.parse('la_bonne_boite.csv', {
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     // Set the default section on page load
+    //     showSection('accueil');
+
+    
+    // Charger le fichier CSV en utilisant PapaParse
+    Papa.parse('la_bonne_boite.csv', {
     header: true,
     dynamicTyping: true,
     download: true,
@@ -410,7 +515,7 @@ Papa.parse('la_bonne_boite.csv', {
             });
 
             return bins.map((count, index) => ({
-            bin: ${index * binSize}-${(index + 1) * binSize},
+            bin: `${index * binSize}-${(index + 1) * binSize}`,  // Corrected this line
             count
             }));
             }
@@ -444,11 +549,27 @@ Papa.parse('la_bonne_boite.csv', {
         }
     });
 
+
     // Show the "Analyse de données" section
     document.getElementById('analyse-de-donnée').style.display = 'block';
-}
-});
-</script>
+    <!-- Intégration des scripts Botpress -->
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    axios.get('mnt/data/filtered_data.csv')
+        .then(function (response) {
+            // Traitez les données CSV ici (par exemple, avec PapaParse)
+            var data = Papa.parse(response.data, {
+                header: true, // Indiquez si la première ligne du CSV contient les en-têtes des colonnes
+                dynamicTyping: true, // Convertit automatiquement les valeurs en nombres si possible
+            });
+
+            // Utilisez les données comme vous le souhaitez
+            console.log(data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+</script>
 </body>
 </html>
