@@ -1,0 +1,56 @@
+/* Position the banner and logo in the header */
+.header {
+    background-color: #0d4030; /* slightly lighter green for the header */
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Make the header a relative positioning context */
+}
+
+.banner-image {
+    width: 100%; /* Make the banner image take the full width of the header */
+    height: 150px; /* Maintain the aspect ratio of the banner */
+}
+
+.logo {
+    position: absolute; /* Position the logo absolutely within the header */
+    top: 65px; /* Vertically center the logo */
+    left: 50%; /* Horizontally center the logo */
+    transform: translate(-50%, -50%); /* Center the logo precisely */
+    z-index: 1; /* Place the logo above other elements */
+}
+
+body {
+    background-color: #165a4b; /* dark green background */
+    color: black; /* light green text */
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #165a4b; /* slightly lighter green for the header */
+    text-align: center;
+    padding: 10px;
+}
+
+.nav-site-links a, .nav-social-links a {
+    color: #e0f2e9; /* light green text for links */
+    text-decoration: none;
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.nav-site-links a:hover, .nav-social-links a:hover {
+    color: #ffffff; /* white text for hovered links */
+}
+
+.nav-button {
+    background-color: #e0f2e9;; /* green background for buttons */
+    color: black; /* light green text for buttons */
+    /* ... rest of your button styling */
+}
+
+.nav-button:hover {
+    background-color: #165a4b; /* darker green on hover */
+}
+
+/* ... rest of your CSS */
+
