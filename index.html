@@ -622,29 +622,60 @@
             console.log(error);
         });
 </script>
+// filtrage et crétion des menus de la bonne boite
 <script>
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Charger les données CSV initialement et remplir les menus déroulants
     Papa.parse('la_bonne_boite.csv', {
         download: true,
         header: true,
         complete: function(results) {
             const data = results.data;
-            // Logique pour remplir les menus déroulants
-            // Utilisez displayData(data) pour afficher toutes les données initialement
+            fillDropdowns(data); // Appel à une fonction pour remplir les menus déroulants
+            displayData(data); // Affiche toutes les données initialement
         }
     });
 });
 
+// Fonction pour remplir les menus déroulants
+function fillDropdowns(data) {
+    const uniquePostalCodes = new Set();
+    // const uniqueRegions = new Set();
+
+    data.forEach(row => {
+        uniquePostalCodes.add(row.Postal_Code);
+        uniqueRegions.add(row.Estimated_Region);
+    });
+
+    const postalCodeSelect = document.getElementById('filter-postal-code');
+    uniquePostalCodes.forEach(code => {
+        postalCodeSelect.innerHTML += `<option value="${code}">${code}</option>`;
+    });
+
+    // const regionSelect = document.getElementById('filter-estimated-region');
+    // uniqueRegions.forEach(region => {
+    //     regionSelect.innerHTML += `<option value="${region}">${region}</option>`;
+    };
+
+
+// Fonction pour filtrer les données en fonction des sélections des menus déroulants
 function filterData() {
-    // Logique pour filtrer les données en fonction des sélections de l'utilisateur
-    // et pour appeler displayData avec les données filtrées
+    // Ici, vous récupérez les valeurs sélectionnées et filtrez les données
+    // Ensuite, vous appelez displayData avec les données filtrées
 }
 
+// Fonction pour afficher les données dans le tableau HTML
 function displayData(data) {
-    // Logique pour afficher les données dans le tableau HTML
+    const tableBody = document.getElementById('data-table-body');
+    tableBody.innerHTML = ''; // Efface les données précédentes
+
+    data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Postal_Code}</td><td>${row.Estimated_Region}</td>`;
+        tableBody.appendChild(tr);
+    });
 }
-   
 </script>
+
 </body>
 </html>
