@@ -284,7 +284,7 @@
     
         <!-- Charger le fichier CSV en utilisant PapaParse -->
         <script>
-            Papa.parse('mnt/data/filtered_data.csv', {
+            Papa.parse('filtered_data.csv', {
                 header: true, // Indiquez si la première ligne du CSV contient les en-têtes des colonnes
                 dynamicTyping: true, // Convertit automatiquement les valeurs en nombres si possible
                 download: true, // Téléchargez le fichier CSV (assurez-vous qu'il est accessible depuis votre site web)
@@ -352,7 +352,7 @@
     <h2>La bonne boite</h2>
     <p>La bonne boite est une API d'un partenaire de pole emploi/France travail qui permet d'accéder à un listing des entreprises ayant un fort potentiel d'embauche.</p>
     <p>La base de donnée La bonne boite est mise à jour 14 fois par mois</p>
-    
+
     <label for="filter-postal-code">Code Postal :</label>
     <select id="filter-postal-code">
     <option value="tous">Tous</option>
@@ -661,8 +661,13 @@ function fillDropdowns(data) {
 
 // Fonction pour filtrer les données en fonction des sélections des menus déroulants
 function filterData() {
-    // Ici, vous récupérez les valeurs sélectionnées et filtrez les données
-    // Ensuite, vous appelez displayData avec les données filtrées
+    const selectedPostalCode = document.getElementById('filter-postal-code').value;
+    // Supposons que `originalData` est votre tableau de données original chargé depuis le CSV
+    const filteredData = originalData.filter(row => {
+        return selectedPostalCode === 'tous' || row.Postal_Code === selectedPostalCode;
+    });
+
+    displayData(filteredData);
 }
 
 // Fonction pour afficher les données dans le tableau HTML
