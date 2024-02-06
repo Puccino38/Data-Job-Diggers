@@ -353,8 +353,8 @@
     <p>La bonne boite est une API d'un partenaire de pole emploi/France travail qui permet d'accéder à un listing des entreprises ayant un fort potentiel d'embauche.</p>
     <p>La base de donnée 'La bonne boite' est mise à jour une fois par mois</p>
 
-    <label for="filter-postal-code">Code Postal :</label>
-    <select id="filter-postal-code">
+    <label for="filter-Code_postal">Code Postal :</label>
+    <select id="filter-Code_postal">
     <option value="tous">Tous</option>
     </select>
 
@@ -372,7 +372,7 @@
     <thead>
         <tr>
             <th>ROME_Code</th>
-            <th>Nom</th>
+            <th>Entreprise</th>
             <th>Adresse</th>
             <th>Potentiel_d_embauche</th>
             <th>Code_postal</th>
@@ -650,10 +650,10 @@ function fillDropdowns(data) {
     const uniquePostalCodes = new Set();
 
     data.forEach(row => {
-        uniquePostalCodes.add(row.Postal_Code);
+        uniquePostalCodes.add(row.Code_postal);
     });
 
-    const postalCodeSelect = document.getElementById('filter-postal-code');
+    const Code_postalSelect = document.getElementById('filter-postal-code');
     uniquePostalCodes.forEach(code => {
         postalCodeSelect.innerHTML += `<option value="${code}">${code}</option>`;
     });
@@ -666,11 +666,11 @@ function fillDropdowns(data) {
 
 // Fonction pour filtrer les données en fonction des sélections des menus déroulants
 function filterData() {
-    const selectedPostalCode = document.getElementById('filter-postal-code').value;
-    console.log("Filtrage pour le code postal:", selectedPostalCode); // Debug
+    const selectedCode_postal = document.getElementById('filter-postal-code').value;
+    console.log("Filtrage pour le code postal:", selectedCode_postal); // Debug
     const filteredData = originalData.filter(row => {
-        console.log(row.Postal_Code); // Voir la valeur de chaque code postal
-        return selectedPostalCode === 'tous' || row.Postal_Code === selectedPostalCode;
+        console.log(row.Code_postal); // Voir la valeur de chaque code postal
+        return selectedCode_postal === 'tous' || row.Code_postal === selectedCode_postal;
     });
 
     console.log(filteredData); // Vérifiez si le résultat filtré est vide
