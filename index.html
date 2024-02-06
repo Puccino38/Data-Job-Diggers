@@ -352,15 +352,16 @@
     <h2>La bonne boite</h2>
     <p>La bonne boite est une API d'un partenaire de pole emploi/France travail qui permet d'accéder à un listing des entreprises ayant un fort potentiel d'embauche.</p>
     <p>La base de donnée La bonne boite est mise à jour 14 fois par mois</p>
+    
     <label for="filter-postal-code">Code Postal :</label>
-<select id="filter-postal-code">
+    <select id="filter-postal-code">
     <option value="tous">Tous</option>
-</select>
+    </select>
 
-<label for="filter-estimated-region">Région Estimée :</label>
-<select id="filter-estimated-region">
+    <!-- <label for="filter-estimated-region">Région Estimée :</label>
+    <select id="filter-estimated-region">
     <option value="tous">Toutes</option>
-</select>
+    </select> -->
 
 <button onclick="filterData()">Filtrer</button>
     <div id="csv-data-display"></div> <!-- Container for displaying CSV data -->
@@ -644,7 +645,7 @@ function fillDropdowns(data) {
 
     data.forEach(row => {
         uniquePostalCodes.add(row.Postal_Code);
-        uniqueRegions.add(row.Estimated_Region);
+        // uniqueRegions.add(row.Estimated_Region);
     });
 
     const postalCodeSelect = document.getElementById('filter-postal-code');
