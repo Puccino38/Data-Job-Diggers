@@ -351,7 +351,7 @@
     <section id="la_bonne_boite" style="display: none;">
     <h2>La bonne boite</h2>
     <p>La bonne boite est une API d'un partenaire de pole emploi/France travail qui permet d'accéder à un listing des entreprises ayant un fort potentiel d'embauche.</p>
-    <p>La base de donnée La bonne boite est mise à jour 14 fois par mois</p>
+    <p>La base de donnée 'La bonne boite' est mise à jour une fois par mois</p>
 
     <label for="filter-postal-code">Code Postal :</label>
     <select id="filter-postal-code">
@@ -628,26 +628,24 @@
 let originalData = []; // Déclaration au niveau global
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Charger les données CSV initialement et remplir les menus déroulants
     Papa.parse('la_bonne_boite.csv', {
         download: true,
         header: true,
         complete: function(results) {
-            const data = results.data;
-            fillDropdowns(data); // Appel à une fonction pour remplir les menus déroulants
-            displayData(data); // Affiche toutes les données initialement
+            originalData = results.data; // Mise à jour de originalData
+            fillDropdowns(originalData); // Remplissage des menus déroulants
+            displayData(originalData); // Affichage des données initiales
         }
     });
 });
 
+
 // Fonction pour remplir les menus déroulants
 function fillDropdowns(data) {
     const uniquePostalCodes = new Set();
-    // const uniqueRegions = new Set();
 
     data.forEach(row => {
         uniquePostalCodes.add(row.Postal_Code);
-        // uniqueRegions.add(row.Estimated_Region);
     });
 
     const postalCodeSelect = document.getElementById('filter-postal-code');
