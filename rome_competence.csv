@@ -1,0 +1,783 @@
+codeROME;codeCompetence;libelleCompetence
+M1806;300113;Concevoir des supports de communication et d'image
+M1806;109818;Elaborer des solutions techniques et fonctionnelles
+M1806;113815;Realiser des etudes d'urbanisme des systemes d'information de l'entreprise
+M1806;300202;Deployer, integrer un logiciel, un systeme d'informations, une application
+M1806;121446;Participer a  la mise en place d'un Progiciel de Gestion Integre (PGI)
+M1806;120340;Proceder aux phases de tests et de recettes des applications developpees
+M1806;300196;Concevoir l'architecture d'un systeme, d'un reseau
+M1806;400327;Determiner l'opportunite de l'integration d'outils IA/Data Science dans le modele d'affaires
+M1806;300408;Rediger un rapport, un compte rendu d'activite
+M1806;300307;Assurer la gestion administrative et financiere d'une activite
+M1806;300308;Estimer les couts et les delais d'une activite ou d'une prestation
+M1806;300313;Controler la realisation et les couts d une prestation 
+M1806;300317;Elaborer une strategie d'achat, optimiser la procedure d'achat
+M1806;400410;Gerer un budget d'investissement
+M1806;300440;Animer, coordonner une equipe
+M1806;300575;Allouer et organiser les ressources d'un projet selon les besoins et contraintes
+M1806;300001;Mettre en oeuvre les actions de transformation necessaires aux changements
+M1806;403009;Gerer les ressources humaines
+M1806;120327;Analyser les processus metier
+M1806;300021;Transmettre une technique, un savoir-faire
+M1806;120326;Recenser les besoins du commanditaire
+M1806;120325;Presenter les evolutions du systeme d'information au commanditaire
+M1806;300377;Elaborer, adapter une proposition commerciale
+M1806;117708;Repondre a  un appel d'offre
+M1806;300488;Concevoir et gerer un projet
+M1806;300175;Piloter la gestion de la production, de l'exploitation
+M1806;109797;Definir la strategie des systemes d'informations
+M1806;123679;Mettre en oeuvre des preconisations fonctionnelles et techniques
+M1806;400454;Evaluer les risques SIC (systeme information et communication)
+M1806;300587;Concevoir et maintenir un systeme de cybersecurite
+M1806;300399;Piloter la gestion des risques
+M1806;400367;Mener et exploiter une analyse strategique
+M1806;300253;Controler la conformite des donnees ou des documents
+M1806;300431;Etablir, mettre a  jour un dossier, une base de donnees
+M1806;300449;Expliquer et faire respecter les regles et proceduresÂ 
+M1806;300458;Structurer, synthetiser des informations
+M1806;300579;Communiquer aupres de ses clients internes et externes
+M1806;300406;Communiquer a  l'ecrit en langue etrangere
+M1806;300411;Communiquer a  l'oral en langue etrangere
+M1806;300415;Convaincre, negocier
+M1806;300469;Preparer et animer une reunion, un groupe de travail, un atelier
+M1806;300188;Rediger un cahier des charges, des specifications techniques
+M1806;300465;Travailler en equipe
+M1806;300460;Faire preuve d'autonomie
+M1806;300490;Faire preuve de rigueur et de precision
+H1206;300186;Realiser une etude d'opportunite et de faisabilite technique et economique
+H1206;402322;Utiliser la fabrication additive pour prototyper et faa§onner des produits
+H1206;113748;Concevoir des modeles theoriques (calcul, simulation, modelisation)
+H1206;300075;Creer, concevoir de nouveaux produits ou des ameliorations produits
+H1206;118500;Elaborer des propositions techniques
+H1206;402310;Traduire les demandes de l'entreprise en solutions techniques
+H1206;300080;Proceder a  des tests, experimentations
+H1206;300081;Realiser une veille technique ou technologique pour anticiper les evolutions
+H1206;124529;Determiner des axes d'evolution technologiques
+H1206;300084;Concevoir et animer une demarche d'innovation
+H1206;300085;Conduire des travaux d'etudes et de recherche
+H1206;402072;Concevoir, conduire et verifier des travaux d'analyse en laboratoire dans le respect des Bonnes Pratiques de Laboratoire (BPL)
+H1206;115350;Concevoir et coordonner un programme, un projet de recherche
+H1206;123211;Realiser une etude de brevetabilite
+H1206;300126;Creer une documentation technique
+H1206;300188;Rediger un cahier des charges, des specifications techniques
+H1206;300456;Analyser une situation et produire un diagnostic
+H1206;300440;Animer, coordonner une equipe
+H1206;300436;Organiser le travail d'une equipe
+H1206;300472;Coordonner l'intervention d'equipes pluridisciplinaires
+H1206;122927;Coordonner des partenariats de recherche et de developpement
+H1206;402203;Manager des equipes projets
+H1206;300008;Cartographier et classifier les emplois et les competences
+H1206;300636;Organiser et planifier une activite
+H1206;300315;Identifier et selectionner des fournisseurs, sous-traitants, prestataires
+H1206;300313;Controler la realisation et les couts d une prestationÂ 
+H1206;300337;Definir la strategie financiere d'une structure
+H1206;300342;Veiller a  la securite juridique d'une decision, d'un projet
+H1206;300350;Negocier un contrat
+H1206;402182;Integrer l'eco-responsabilite dans toutes les dimensions de son activite
+H1206;300487;Piloter une activite
+H1206;300488;Concevoir et gerer un projet
+H1206;119161;Identifier les contraintes d'un projet
+H1206;300241;Evaluer la mise en oeuvre d'un projet, plan d'action
+H1206;300321;Concevoir des outils de pilotage, indicateurs, tableaux de bord
+H1206;122926;Developper des partenariats de recherche et de developpement
+H1206;300401;Diriger et gerer un ensemble, une structure, une organisation
+H1206;300146;Elaborer des processus et des modes operatoires techniques
+H1206;300129;Mettre en oeuvre les processus et les modes operatoires techniques
+H1206;300207;Maa®triser les caracteristiques d'un produit
+H1206;118245;Elaborer un dossier de certification
+H1206;300250;Analyser la qualite des process
+H1206;300258;Controler la qualite et la conformite des process
+H1206;121624;Actualiser des dossiers techniques de definition du projet
+H1206;300253;Controler la conformite des donnees ou des documents
+H1206;300427;Utiliser les outils collaboratifs
+H1206;402124;Developper l'usage d'outils collaboratifs aupres des equipes, en y integrant de nouveaux risques associes
+H1206;300452;Collecter et analyser des informations
+H1206;300458;Structurer, synthetiser des informations
+H1206;300462;Rendre compte de son activite
+H1206;300411;Communiquer a  l'oral en langue etrangere
+H1206;300413;Prendre la parole en public
+H1206;300415;Convaincre, negocier
+H1206;300451;Transmettre de l'information
+H1206;300463;Developper et gerer des relations interpersonnelles
+H1206;300469;Preparer et animer une reunion, un groupe de travail, un atelier
+H1206;300470;Travailler en reseau
+H1206;402226;Participer a  un travail collaboratif
+H1206;300492;Actualiser regulierement ses connaissances
+H1206;300502;Organiser et developper son reseau professionnel
+H1206;300465;Travailler en equipe
+H1206;300467;Prendre des initiatives et aªtre force de proposition
+H1206;300497;Faire preuve de creativite, d'inventivite
+M1403;300417;Mener un entretien, une interview, une audition
+M1403;109528;Rediger l'information produite
+M1403;117323;Coordonner le deroulement d'une etude
+M1403;122178;Realiser des etudes specifiques
+M1403;109542;Realiser une etude
+M1403;124133;Realiser une etude quantitative
+M1403;124418;Realiser un modele de prevision
+M1403;109527;Adapter les outils de traitement statistique de donnees
+M1403;300457;Definir et faire evoluer des procedes de traitement de l'information
+M1403;121431;Contractualiser une prestation
+M1403;121427;Developper un portefeuille clients et prospects
+M1403;120552;Analyser les insights et les usages des consommateurs
+M1403;117698;Concevoir des modeles de detection des insights consommateurs
+M1403;300488;Concevoir et gerer un projet
+M1403;125901;Mettre en place des outils d'aide a  la decision
+M1403;400747;Etablir des previsions, des evaluations, des recommandations, des perspectives
+M1403;300401;Diriger et gerer un ensemble, une structure, une organisation
+M1403;300440;Animer, coordonner une equipe
+M1403;403009;Gerer les ressources humaines
+M1403;300021;Transmettre une technique, un savoir-faire
+M1403;300323;Elaborer, suivre et piloter un budget
+M1403;300333;Realiser un audit financier
+M1403;300067;Analyser, exploiter, structurer des donnees
+M1403;300119;Realiser une veille documentaire
+M1403;300426;Utiliser les outils bureautiques
+M1403;121983;Assister une structure dans l'interpretation et l'analyse d'une etude
+M1403;109529;Presenter et diffuser les resultats des etudes realisees
+M1403;300465;Travailler en equipe
+M1403;300467;Prendre des initiatives et aªtre force de proposition
+M1403;300490;Faire preuve de rigueur et de precision
+G1302;300184;Apporter une assistance technique
+G1302;300372;Definir la tarification des produits ou des services
+G1302;119790;Concevoir des actions commerciales et promotionnelles
+G1302;121242;Participer a  la promotion et au package d'un produit touristique
+G1302;300382;Realiser une etude de marche, evaluer le potentiel d'un produit ou service
+G1302;300383;Realiser une veille de marche, une veille concurrentielle
+G1302;300384;Elaborer une strategie commerciale
+G1302;300312;Mettre en place des solutions d'amelioration de la performance
+G1302;119912;Analyser les resultats des ventes
+G1302;400345;Determiner des previsionnels de reservation / de vente
+G1302;400353;Entretenir des relations avec les acteurs et fournisseurs
+G1302;300323;Elaborer, suivre et piloter un budget
+G1302;300326;Mettre en oeuvre un controle de gestion, un audit interne
+G1302;300333;Realiser un audit financier
+G1302;122709;Etablir un contrat de vente
+G1302;300350;Negocier un contrat
+G1302;300440;Animer, coordonner une equipe
+G1302;300436;Organiser le travail d'une equipe
+G1302;400396;Evaluer les competences de ses collaborateurs et assurer des entretiens annuels
+G1302;122356;Definir un profil de recrutement
+G1302;300278;Organiser une operation logistique de transport
+G1302;300275;Transporter des passagers
+G1302;300028;Sensibiliser un public
+G1302;300406;Communiquer a  l'ecrit en langue etrangere
+G1302;300411;Communiquer a  l'oral en langue etrangere
+G1302;300426;Utiliser les outils bureautiques
+G1302;121914;Organiser un circuit d'information
+G1302;300492;Actualiser regulierement ses connaissances
+G1302;300465;Travailler en equipe
+G1302;300467;Prendre des initiatives et aªtre force de proposition
+G1302;300490;Faire preuve de rigueur et de precision
+M1801;125199;Rediger un script
+M1801;400298;Elaborer et mettre en oeuvre un plan de tests
+M1801;300081;Realiser une veille technique ou technologique pour anticiper les evolutions
+M1801;120259;Installer un equipement informatique
+M1801;125198;Integrer un script
+M1801;300204;Administrer un systeme d'informations
+M1801;117024;Ameliorer un systeme d'information
+M1801;115552;Gerer les droits d'acces des utilisateurs
+M1801;120306;Attribuer des ressources logistiques et materielles de reseaux
+M1801;300153;Utiliser une installation, une machine
+M1801;125902;Analyser les performances d'un systeme d'information
+M1801;120271;Determiner les causes de dysfonctionnements
+M1801;113823;Realiser les interventions de telemaintenance
+M1801;120257;Selectionner les equipements informatiques
+M1801;300149;Evaluer, prevenir, et gerer les risques et la securite
+M1801;115801;Gerer la securite informatique
+M1801;300587;Concevoir et maintenir un systeme de cybersecurite
+M1801;400704;Identifier des solutions et des pistes d'actions au regard du diagnostic etabli
+M1801;300399;Piloter la gestion des risques
+M1801;300612;Gerer et maintenir la conformite d'un processus ou d'une solution
+M1801;300440;Animer, coordonner une equipe
+M1801;121992;Conseiller des equipes de developpement, de production et des utilisateurs
+M1801;300019;Accompagner l'appropriation d'un outil par ses utilisateurs
+M1801;300323;Elaborer, suivre et piloter un budget
+M1801;400252;Gerer le budget de son unite
+M1801;300488;Concevoir et gerer un projet
+M1801;400826;Organiser et gerer la prevention et le traitement des incidents et dysfonctionnements.
+M1801;300579;Communiquer aupres de ses clients internes et externes
+M1801;300406;Communiquer a  l'ecrit en langue etrangere
+M1801;300469;Preparer et animer une reunion, un groupe de travail, un atelier
+M1801;300458;Structurer, synthetiser des informations
+M1801;300465;Travailler en equipe
+M1801;300460;Faire preuve d'autonomie
+M1801;300490;Faire preuve de rigueur et de precision
+H1402;300197;Elaborer un schema directeur technique, definir des besoins en equipement
+H1402;300146;Elaborer des processus et des modes operatoires techniques
+H1402;114788;Concevoir des procedures de fabrication
+H1402;118530;Elaborer un dossier d'industrialisation
+H1402;300152;Preparer du materiel en prevision d'un travail
+H1402;300174;Elaborer et planifier un programme de production, d'exploitation
+H1402;300155;Demarrer et/ou arraªter une machine, une ligne
+H1402;300180;Controler la conformite d'un equipement, d'une machine, d'une installation
+H1402;123311;Analyser un dysfonctionnement ou une non-conformite
+H1402;124797;Superviser des installations ou des transferts industriels
+H1402;300245;Piloter une demarche qualite, un processus d'amelioration continue
+H1402;300186;Realiser une etude d'opportunite et de faisabilite technique et economique
+H1402;402322;Utiliser la fabrication additive pour prototyper et faa§onner des produits
+H1402;118270;Conduire des tests, essais de fabrication et production (montage, prototype, preserie etc.)
+H1402;300081;Realiser une veille technique ou technologique pour anticiper les evolutions
+H1402;300085;Conduire des travaux d'etudes et de recherche
+H1402;300188;Rediger un cahier des charges, des specifications techniques
+H1402;300636;Organiser et planifier une activite
+H1402;300408;Rediger un rapport, un compte rendu d'activite
+H1402;300308;Estimer les couts et les delais d'une activite ou d'une prestation
+H1402;300315;Identifier et selectionner des fournisseurs, sous-traitants, prestataires
+H1402;300313;Controler la realisation et les couts d une prestationÂ 
+H1402;402182;Integrer l'eco-responsabilite dans toutes les dimensions de son activite
+H1402;300440;Animer, coordonner une equipe
+H1402;300435;Optimiser les effectifs, l'adequation et l'allocation des ressources
+H1402;402203;Manager des equipes projets
+H1402;121056;Determiner l'implantation des postes de travail
+H1402;300021;Transmettre une technique, un savoir-faire
+H1402;121049;Apporter un appui technique aux services qualite, maintenance, methodes
+H1402;117243;Etablir un devis
+H1402;300488;Concevoir et gerer un projet
+H1402;300175;Piloter la gestion de la production, de l'exploitation
+H1402;402208;Mettre en oeuvre et anticiper les actions necessaires pour optimiser l'utilisation des moyens de production
+H1402;300398;Optimiser la performance de l'organisation
+H1402;300401;Diriger et gerer un ensemble, une structure, une organisation
+H1402;300067;Analyser, exploiter, structurer des donnees
+H1402;300428;Utiliser des logiciels specifiques
+H1402;300446;Respecter les regles de Qualite, Hygiene, Securite, Sante et Environnement (QHSSE)
+H1402;300449;Expliquer et faire respecter les regles et proceduresÂ 
+H1402;300458;Structurer, synthetiser des informations
+H1402;300411;Communiquer a  l'oral en langue etrangere
+H1402;300415;Convaincre, negocier
+H1402;300470;Travailler en reseau
+H1402;300465;Travailler en equipe
+H1402;300460;Faire preuve d'autonomie
+H1402;300490;Faire preuve de rigueur et de precision
+E1402;300111;Definir une strategie de communication
+E1402;120512;Definir une strategie media
+E1402;120524;Elaborer un plan media
+E1402;122455;Selectionner des canaux de communication
+E1402;121818;Realiser des supports de communication multimedia
+E1402;300065;Administrer une enquaªte, un sondage
+E1402;121538;Realiser l'analyse d'un produit
+E1402;116279;Mettre en place des solutions de suivi (tracking) pour analyser le trafic d'un site et les comportements de navigation des visiteurs
+E1402;114255;Etablir et faire evoluer des methodologies et outils d'etude et de mesure medias
+E1402;300366;Recueillir et analyser les besoins client
+E1402;121658;Negocier les conditions d'achat d'un espace publicitaire
+E1402;103011;Suivre et analyser les resultats d'une campagne de communication
+E1402;300382;Realiser une etude de marche, evaluer le potentiel d'un produit ou service
+E1402;121721;Collecter des informations sur un produit, une marque
+E1402;125421;Acheter des espaces publicitaires
+E1402;120513;Definir le message d'une campagne mediatique
+E1402;121539;Realiser l'analyse d'une marque
+E1402;300488;Concevoir et gerer un projet
+E1402;103023;Realiser le bilan des actions de communication
+E1402;121262;Ameliorer le positionnement d'un site web
+E1402;300401;Diriger et gerer un ensemble, une structure, une organisation
+E1402;124377;Assurer la gestion administrative d'une activite
+E1402;300318;Realiser des operations comptables
+E1402;300440;Animer, coordonner une equipe
+E1402;300242;Determiner des mesures correctives
+E1402;121283;Analyser le trafic d'un site web
+E1402;300125;Renseigner, mettre a  jour une documentation technique
+E1402;300253;Controler la conformite des donnees ou des documents
+E1402;123393;Mettre en ligne une campagne publicitaire
+E1402;300492;Actualiser regulierement ses connaissances
+E1402;300465;Travailler en equipe
+E1402;300467;Prendre des initiatives et aªtre force de proposition
+E1402;300490;Faire preuve de rigueur et de precision
+H1401;122606;Definir des flux de production
+H1401;300174;Elaborer et planifier un programme de production, d'exploitation
+H1401;122376;Coordonner des installations de production
+H1401;124582;Definir et analyser les moyens de production d'une entreprise
+H1401;300207;Maa®triser les caracteristiques d'un produit
+H1401;300182;Reparer un equipement, une machine, une installation
+H1401;300245;Piloter une demarche qualite, un processus d'amelioration continue
+H1401;300247;Analyser la qualite et la conformite des matieres premieres
+H1401;300250;Analyser la qualite des process
+H1401;300258;Controler la qualite et la conformite des process
+H1401;300243;Controler les regles de Qualite, Hygiene, Securite, Sante et Environnement (QHSSE)
+H1401;117561;Superviser la gestion des stocks
+H1401;300261;Organiser et controler un approvisionnement
+H1401;300184;Apporter une assistance technique
+H1401;300368;Vendre ou louer des produits ou des services
+H1401;300370;Negocier des conditions commerciales
+H1401;300372;Definir la tarification des produits ou des services
+H1401;117243;Etablir un devis
+H1401;300487;Piloter une activite
+H1401;300488;Concevoir et gerer un projet
+H1401;300175;Piloter la gestion de la production, de l'exploitation
+H1401;122607;Definir un dispositif de suivi de production
+H1401;124581;Maintenir les conditions generales de production et de service
+H1401;300311;Piloter la performance et la rentabilite d'une activite ou d'un projet
+H1401;300322;Controler des indicateurs de performance, analyser et corriger des ecarts
+H1401;300401;Diriger et gerer un ensemble, une structure, une organisation
+H1401;300310;Reduire les couts, les consommations, les rejets
+H1401;300308;Estimer les couts et les delais d'une activite ou d'une prestation
+H1401;300315;Identifier et selectionner des fournisseurs, sous-traitants, prestataires
+H1401;300313;Controler la realisation et les couts d une prestationÂ 
+H1401;123309;Analyser les couts de la chaa®ne logistique (supply chain)
+H1401;402182;Integrer l'eco-responsabilite dans toutes les dimensions de son activite
+H1401;300440;Animer, coordonner une equipe
+H1401;300436;Organiser le travail d'une equipe
+H1401;300435;Optimiser les effectifs, l'adequation et l'allocation des ressources
+H1401;300445;Evaluer et developper les competences de ses collaborateurs
+H1401;300472;Coordonner l'intervention d'equipes pluridisciplinaires
+H1401;300019;Accompagner l'appropriation d'un outil par ses utilisateurs
+H1401;124583;Etudier la faisabilite d'une commande
+H1401;300188;Rediger un cahier des charges, des specifications techniques
+H1401;300067;Analyser, exploiter, structurer des donnees
+H1401;300253;Controler la conformite des donnees ou des documents
+H1401;300426;Utiliser les outils bureautiques
+H1401;300428;Utiliser des logiciels specifiques
+H1401;402323;Utiliser les outils du Supply Chain Risk Management (SCRM)
+H1401;300446;Respecter les regles de Qualite, Hygiene, Securite, Sante et Environnement (QHSSE)
+H1401;300449;Expliquer et faire respecter les regles et proceduresÂ 
+H1401;300452;Collecter et analyser des informations
+H1401;300458;Structurer, synthetiser des informations
+H1401;300462;Rendre compte de son activite
+H1401;300411;Communiquer a  l'oral en langue etrangere
+H1401;300415;Convaincre, negocier
+H1401;402137;Entretenir des relations assertives avec les differents interlocuteurs
+H1401;300470;Travailler en reseau
+H1401;300467;Prendre des initiatives et aªtre force de proposition
+H1401;300489;Faire preuve de leadership
+H1401;300490;Faire preuve de rigueur et de precision
+M1805;126535;Realiser des etudes et developpements informatiques
+M1805;109845;Realiser un prototype de la solution technique pour validation par le donneur d'ordres (configuration type, ...)
+M1805;300586;Concevoir et developper une solution digitale
+M1805;400775;Analyser les indicateurs pertinents sur les tendances et les usages des clients
+M1805;400145;Proposer des pistes d'amelioration des solutions
+M1805;113854;Realiser des etudes d'organisation et d'evolution de systemes d'information
+M1805;300077;Creer, elaborer et identifier des concepts innovants
+M1805;400707;Animer une demarche agile et innovante
+M1805;113330;Superviser et coordonner les realisations, etudes ou developpements informatiques (collaborateurs, sous-traitants)
+M1805;300126;Creer une documentation technique
+M1805;300188;Rediger un cahier des charges, des specifications techniques
+M1805;400285;Mettre en place une blockchain (protocoles, consensus etc.)
+M1805;300198;Parametrer un logiciel, un outil, un systeme numerique
+M1805;400478;Piloter des evolutions ou des parametrages a  apporter aux composants
+M1805;300199;Developper un logiciel, un systeme d'informations, une application
+M1805;400090;Assembler des composants logiciels
+M1805;400261;Coder
+M1805;109846;Concevoir une application web
+M1805;113317;Developper une application en lien avec une base de donnees
+M1805;400796;Verifier la compatibilite des developpements produits avec les specifications
+M1805;400184;Gerer et deployer des logiciels a  distance
+M1805;120451;Realiser la mise en production de solutions logicielles dans un environnement d'exploitation
+M1805;115531;Selectionner, assembler et integrer des composants informatiques (progiciels, bases de donnees, developpements specifiques, ...)
+M1805;300679;Tester un logiciel, un systeme d'informations, une application
+M1805;300196;Concevoir l'architecture d'un systeme, d'un reseau
+M1805;400165;Concevoir la cartographie fonctionnelle du SI
+M1805;400759;Integrer des outils IA/Data Science
+M1805;300592;Concevoir un equipement selon ses usages et contraintes
+M1805;300185;Realiser un diagnostic technique
+M1805;109979;Surveiller le fonctionnement d'applicatifs et logiciels
+M1805;300587;Concevoir et maintenir un systeme de cybersecurite
+M1805;300615;Gerer les risques de cybersecurite
+M1805;400176;Mener un processus de test en cybersecurite
+M1805;300242;Determiner des mesures correctives
+M1805;300481;Gerer une situation d'urgence
+M1805;400192;Garantir le bon fonctionnement, la disponibilite et la performance d'une solution logicielle
+M1805;300575;Allouer et organiser les ressources d'un projet selon les besoins et contraintes
+M1805;403009;Gerer les ressources humaines
+M1805;300019;Accompagner l'appropriation d'un outil par ses utilisateurs
+M1805;300021;Transmettre une technique, un savoir-faire
+M1805;300022;Enseigner, transmettre des connaissances, developper des competences
+M1805;300366;Recueillir et analyser les besoins client
+M1805;400199;Identifier les besoins en logiciel
+M1805;300374;Presenter et valoriser un produit ou un service
+M1805;300582;Comparer des solutions, produits ou materiels
+M1805;400320;Piloter le deploiement et l'integration d'outils d'optimisation au sein des processus metiers
+M1805;300488;Concevoir et gerer un projet
+M1805;121028;Planifier les etapes d'un projet
+M1805;300175;Piloter la gestion de la production, de l'exploitation
+M1805;300315;Identifier et selectionner des fournisseurs, sous-traitants, prestataires
+M1805;300314;Lancer et gerer un appel d'offres
+M1805;300313;Controler la realisation et les couts d une prestationÂ 
+M1805;300317;Elaborer une strategie d'achat, optimiser la procedure d'achat
+M1805;300350;Negocier un contrat
+M1805;300067;Analyser, exploiter, structurer des donnees
+M1805;300353;Evaluer une situation a  risques
+M1805;300450;Respecter la confidentialite des informations
+M1805;300458;Structurer, synthetiser des informations
+M1805;300579;Communiquer aupres de ses clients internes et externes
+M1805;300406;Communiquer a  l'ecrit en langue etrangere
+M1805;300411;Communiquer a  l'oral en langue etrangere
+M1805;300418;Promouvoir une proposition, un projet
+M1805;300469;Preparer et animer une reunion, un groupe de travail, un atelier
+M1805;300492;Actualiser regulierement ses connaissances
+M1805;300465;Travailler en equipe
+M1805;300460;Faire preuve d'autonomie
+M1805;300490;Faire preuve de rigueur et de precision
+M1805;300497;Faire preuve de creativite, d'inventivite
+M1204;122032;Calculer les marges, la rentabilite d'un produit ou d'une activite
+M1204;121527;Concevoir un plan previsionnel d'activite
+M1204;300175;Piloter la gestion de la production, de l'exploitation
+M1204;118990;Elaborer des tableaux de bord
+M1204;125901;Mettre en place des outils d'aide a  la decision
+M1204;300312;Mettre en place des solutions d'amelioration de la performance
+M1204;121257;Proposer et accompagner des actions de transformation organisationnelle
+M1204;300322;Controler des indicateurs de performance, analyser et corriger des ecarts
+M1204;109797;Definir la strategie des systemes d'informations
+M1204;300397;Superviser le controle interne d'une structure
+M1204;300401;Diriger et gerer un ensemble, une structure, une organisation
+M1204;121196;Realiser un suivi de la masse salariale
+M1204;300408;Rediger un rapport, un compte rendu d'activite
+M1204;124377;Assurer la gestion administrative d'une activite
+M1204;300323;Elaborer, suivre et piloter un budget
+M1204;300318;Realiser des operations comptables
+M1204;124776;Superviser une cloture comptable
+M1204;119492;Identifier les risques lies a  une gestion d'entreprise
+M1204;300440;Animer, coordonner une equipe
+M1204;300016;Conseiller une organisation, une structure
+M1204;116838;Suivre le systeme d'informations de gestion
+M1204;300242;Determiner des mesures correctives
+M1204;300467;Prendre des initiatives et aªtre force de proposition
+M1204;300483;Organiser son travail selon les priorites et les objectifs
+M1204;300490;Faire preuve de rigueur et de precision
+M1201;113517;Rediger et faire publier des notes de conjonctures sectorielles ou des etudes sur de grandes entreprises
+M1201;122742;Elaborer des instruments d'evaluation de la fragilite et de la sensibilite de l'entreprise
+M1201;124377;Assurer la gestion administrative d'une activite
+M1201;300314;Lancer et gerer un appel d'offres
+M1201;109354;Estimer la valeur de l'entreprise analysee
+M1201;122815;Etablir une recommandation de cession d'actifs financiers
+M1201;300333;Realiser un audit financier
+M1201;118735;Analyser un bilan financier
+M1201;300334;Analyser et gerer les risques financiers
+M1201;300335;Realiser des operations de marche financier
+M1201;121788;Concevoir une offre publique d'achat
+M1201;121787;Introduire une societe en bourse
+M1201;300337;Definir la strategie financiere d'une structure
+M1201;300345;Gerer des reclamations et litiges
+M1201;300184;Apporter une assistance technique
+M1201;123032;Proposer des solutions de couverture risques pour une entreprise
+M1201;300371;Prospecter de nouveaux clients, de nouveaux marches
+M1201;300382;Realiser une etude de marche, evaluer le potentiel d'un produit ou service
+M1201;300383;Realiser une veille de marche, une veille concurrentielle
+M1201;300389;Elaborer un plan d'investissement, un business plan
+M1201;115468;Expertiser des projets et mettre en oeuvre des operations de fusion/acquisition
+M1201;124136;Integrer des modeles mathematiques financiers a  des systemes d'information
+M1201;124135;Realiser des modeles mathematiques financiers pour des operateurs de marches
+M1201;124418;Realiser un modele de prevision
+M1201;300440;Animer, coordonner une equipe
+M1201;300016;Conseiller une organisation, une structure
+M1201;300486;Superviser des operations, des actions
+M1201;300119;Realiser une veille documentaire
+M1201;300452;Collecter et analyser des informations
+M1201;300465;Travailler en equipe
+M1201;300483;Organiser son travail selon les priorites et les objectifs
+M1201;300490;Faire preuve de rigueur et de precision
+M1803;300373;Concevoir et promouvoir une offre commerciale
+M1803;300377;Elaborer, adapter une proposition commerciale
+M1803;300384;Elaborer une strategie commerciale
+M1803;300488;Concevoir et gerer un projet
+M1803;300593;Concevoir un indicateur et organiser sa production
+M1803;300390;Etablir un diagnostic strategique
+M1803;300393;Concevoir et mettre en oeuvre une strategie digitale
+M1803;109797;Definir la strategie des systemes d'informations
+M1803;300401;Diriger et gerer un ensemble, une structure, une organisation
+M1803;109807;Superviser un secteur/projet de deploiement
+M1803;300440;Animer, coordonner une equipe
+M1803;400408;Faciliter les projets et transformations
+M1803;300575;Allouer et organiser les ressources d'un projet selon les besoins et contraintes
+M1803;109810;Superviser un secteur/projet de pilotage de ressources logiques et physiques
+M1803;400296;Developper les competences de ses collaborateurs
+M1803;300438;Favoriser et mesurer la performance d'une equipe
+M1803;403009;Gerer les ressources humaines
+M1803;300009;Concevoir et piloter une politique de gestion des ressources humaines
+M1803;300197;Elaborer un schema directeur technique, definir des besoins en equipement
+M1803;109809;Superviser un secteur/projet de maintenance
+M1803;300486;Superviser des operations, des actions
+M1803;124834;Superviser un projet d'architecture
+M1803;124835;Superviser un projet d'etude et developpement
+M1803;109813;Superviser un secteur/projet de securite, qualite
+M1803;300149;Evaluer, prevenir, et gerer les risques et la securite
+M1803;115801;Gerer la securite informatique
+M1803;300615;Gerer les risques de cybersecurite
+M1803;300314;Lancer et gerer un appel d'offres
+M1803;300313;Controler la realisation et les couts d une prestationÂ 
+M1803;122523;Definir une politique de sous-traitance
+M1803;122524;Mettre en place une politique de sous-traitance
+M1803;109800;Proceder au choix de realisation, de traitement en interne ou par sous-traitance et en controler la conformite de realisation
+M1803;300323;Elaborer, suivre et piloter un budget
+M1803;113837;Surveiller des evolutions technologiques des systemes d'information et de telecommunications et proposer des solutions techniques
+M1803;300085;Conduire des travaux d'etudes et de recherche
+M1803;300188;Rediger un cahier des charges, des specifications techniques
+M1803;300196;Concevoir l'architecture d'un systeme, d'un reseau
+M1803;300579;Communiquer aupres de ses clients internes et externes
+M1803;400293;Expliquer les mesures disponibles et mobiliser les acteurs internes/externes impliques
+M1803;300253;Controler la conformite des donnees ou des documents
+M1803;300449;Expliquer et faire respecter les regles et proceduresÂ 
+M1803;300465;Travailler en equipe
+M1803;300467;Prendre des initiatives et aªtre force de proposition
+M1803;300460;Faire preuve d'autonomie
+M1503;300440;Animer, coordonner une equipe
+M1503;300445;Evaluer et developper les competences de ses collaborateurs
+M1503;300001;Mettre en oeuvre les actions de transformation necessaires aux changements
+M1503;300005;Proceder au licenciement d'une personne
+M1503;300007;Gerer la mobilite et les parcours professionnels
+M1503;117599;Gerer les carrieres
+M1503;124149;Concevoir des referentiels d'emplois et de competences
+M1503;300009;Concevoir et piloter une politique de gestion des ressources humaines
+M1503;119331;Definir des operations de recrutement
+M1503;120717;Gerer les procedures d'embauche du personnel
+M1503;121641;Piloter des operations liees a  la gestion des emplois et des competences
+M1503;121179;Piloter la realisation des entretiens annuels du personnel
+M1503;300010;Amenager un poste et les conditions de travail
+M1503;124587;Identifier les amenagements necessaires d'un poste de travail
+M1503;300013;Animer le dialogue social
+M1503;116384;Assurer les relations avec les differentes instances du personnel
+M1503;123278;Etablir un reporting social
+M1503;123742;Negocier une convention ou un accord d'entreprise
+M1503;121122;Organiser les elections des Instances Representatives du Personnel (IRP)
+M1503;124056;Realiser un bilan/diagnostic social
+M1503;122163;Conseiller des responsables de service
+M1503;300026;Concevoir l'ingenierie de formation et les sequences pedagogiques
+M1503;108383;Concevoir des referentiels de formations
+M1503;300027;Organiser et piloter un programme de formation
+M1503;300040;Prevenir les risques psychosociaux
+M1503;300306;Gerer la paie
+M1503;122699;Etablir un Rapport Annuel Unique
+M1503;300324;Concevoir des supports de suivi et de gestion
+M1503;122244;Concevoir des fichiers du personnel
+M1503;121819;Concevoir des procedures de gestion du personnel
+M1503;105672;Realiser la gestion administrative du personnel
+M1503;122250;Realiser la gestion administrative du temps de travail
+M1503;300323;Elaborer, suivre et piloter un budget
+M1503;300319;Realiser une analyse comptable et financiere
+M1503;300339;Controler et faire appliquer le respect de dispositions legales et reglementaires
+M1503;122246;Controler des declarations obligatoires
+M1503;122506;Deployer des mesures reglementaires liees au droit du travail
+M1503;122247;Realiser des declarations obligatoires
+M1503;121674;Realiser le suivi d'une action, accord ou convention
+M1503;124121;Realiser une enquaªte
+M1503;400372;Mener une recherche et une veille d'information
+M1503;300204;Administrer un systeme d'informations
+M1503;300312;Mettre en place des solutions d'amelioration de la performance
+M1503;118744;Participer a  la definition des orientations strategiques de l'entreprise
+M1503;121673;Negocier un accord, une convention avec des intervenants externes
+M1503;300401;Diriger et gerer un ensemble, une structure, une organisation
+M1503;300245;Piloter une demarche qualite, un processus d'amelioration continue
+M1503;300253;Controler la conformite des donnees ou des documents
+M1503;300426;Utiliser les outils bureautiques
+M1503;300431;Etablir, mettre a  jour un dossier, une base de donnees
+M1503;122243;Controler des fichiers du personnel
+M1503;300463;Developper et gerer des relations interpersonnelles
+M1503;300465;Travailler en equipe
+M1503;300483;Organiser son travail selon les priorites et les objectifs
+M1503;300490;Faire preuve de rigueur et de precision
+M1804;300633;Modeliser et anticiper les usages reseaux
+M1804;300080;Proceder a  des tests, experimentations
+M1804;400447;Rediger des specifications techniques des terminaux en prenant en compte les dimensions techniques et financieres ainsi que la strategie industrielle de l'operateur
+M1804;300664;Rediger des documents d'ingenierie (redaction des specifications fonctionnelles et livrables techniques des solutions)
+M1804;400480;Rediger le dossier d'ingenierie detaillee (regles d'installation et de parametrage, definition des configurations techniques de reference des equipements)
+M1804;400449;Rediger le document d'ingenierie generale pour chaque element de reseau a  implementer (fonctionnalites, protocoles utilises, regles de dimensionnement et de mise en oeuvre)
+M1804;115526;Concevoir le design, les specifications ou configurations d'un reseau telecoms
+M1804;400402;Rediger les dossiers technico-economiques de deploiement et de reamenagement des equipements de reseau et PFS (plateformes de services), formaliser les besoins de reamenagements
+M1804;300199;Developper un logiciel, un systeme d'informations, une application
+M1804;300679;Tester un logiciel, un systeme d'informations, une application
+M1804;300606;Elaborer un plan d'evolution du reseau
+M1804;300608;Etablir le plan d'implementation
+M1804;400440;Rediger des dossiers d'architecture reseau
+M1804;300191;Concevoir, ameliorer un equipement, une machine, une installation
+M1804;121175;Determiner les implantations de relais, pylones et ca¢bles
+M1804;115530;Concevoir et decliner la mise en oeuvre de la strategie technique de l'operateur telecoms
+M1804;400629;Acceder directement en ecriture sur des machines et serveurs pour configurer
+M1804;121174;Etudier des terrains potentiels
+M1804;300220;Raccorder, gerer un reseau technique
+M1804;400334;Garantir le bon fonctionnement, la disponibilite et la performance des elements de reseaux ou logiciels places sous sa responsabilite
+M1804;300587;Concevoir et maintenir un systeme de cybersecurite
+M1804;300366;Recueillir et analyser les besoins client
+M1804;300184;Apporter une assistance technique
+M1804;115528;Suivre et negocier l'installation (droit de passage, baux) d'un site d'implantation et d'infrastructures de reseaux telecoms (pylones, antennes, ca¢bles, ...)
+M1804;300582;Comparer des solutions, produits ou materiels
+M1804;300383;Realiser une veille de marche, une veille concurrentielle
+M1804;300488;Concevoir et gerer un projet
+M1804;300315;Identifier et selectionner des fournisseurs, sous-traitants, prestataires
+M1804;300314;Lancer et gerer un appel d'offres
+M1804;300313;Controler la realisation et les couts d une prestationÂ 
+M1804;400424;Maitriser les elements du Business Plan et de l'analyse de la valeur
+M1804;300440;Animer, coordonner une equipe
+M1804;300022;Enseigner, transmettre des connaissances, developper des competences
+M1804;300579;Communiquer aupres de ses clients internes et externes
+M1804;300682;Travailler en reseau et cooperer avec des profils metiers diversifies
+M1804;400473;Renseigner des bases de donnees de l'operateur (saisie manuelle d'informations) / Garantir la qualite des informations contenues dans les bases
+M1804;300492;Actualiser regulierement ses connaissances
+M1804;300465;Travailler en equipe
+M1804;300489;Faire preuve de leadership
+M1804;300460;Faire preuve d'autonomie
+M1804;300479;S'adapter aux changements
+M1804;300497;Faire preuve de creativite, d'inventivite
+I1304;122026;Definir l'implantation d'un equipement industriel ou d'exploitation
+I1304;118532;Optimiser un processus industriel
+I1304;300135;Monter et regler une installation, une machine
+I1304;300153;Utiliser une installation, une machine
+I1304;402314;Utiliser des appareils de tests (pression, debit, vibration, ...) et de mesure electrique
+I1304;402325;Utiliser un outil, une machine, un equipement
+I1304;123770;Realiser le montage d'equipements industriels ou d'exploitation
+I1304;402099;Controler, surveiller et entretenir regulierement les equipements
+I1304;106714;Realiser les reglages de mise au point de l'equipement industriel ou d'exploitation et controler son fonctionnement
+I1304;300185;Realiser un diagnostic technique
+I1304;402115;Detecter l'origine d'une panne (sur place ou a  distance)
+I1304;105789;Detecter les dysfonctionnements des installations, determiner les causes de panne et etablir les demandes d'intervention de maintenance
+I1304;124739;Identifier les composants et les pieces defectueuses
+I1304;402270;Realiser un diagnostic de fonctionnement et controler les machines, installations et equipements
+I1304;105851;Realiser un premier diagnostic de dysfonctionnement et appliquer les mesures correctives
+I1304;402264;Realiser des operations de maintenance a  caractere preventif, systematique ou conditionnel
+I1304;300182;Reparer un equipement, une machine, une installation
+I1304;300172;Controler le fonctionnement d'un equipement, d'une machine, d'une installation
+I1304;125310;Planifier une operation de maintenance
+I1304;300672;Suivre une operation de maintenance, de support technique
+I1304;125311;Superviser une operation de maintenance
+I1304;300173;Organiser ou surveiller des phases de fabrication
+I1304;402039;Anticiper les risques de cybersecurite
+I1304;402080;Contribuer a  la cybersecurite de l'entreprise : savoir reconnaa®tre les donnees sensibles
+I1304;300242;Determiner des mesures correctives
+I1304;300244;Elaborer des regles et procedures de Qualite, Hygiene, Securite, Sante et Environnement (QHSSE)
+I1304;402258;Proposer des solutions pour optimiser securite et performance des materiels
+I1304;300255;Controler la qualite et la conformite d'un produit
+I1304;300258;Controler la qualite et la conformite des process
+I1304;402322;Utiliser la fabrication additive pour prototyper et faa§onner des produits
+I1304;400324;Participer a  l'innovation et contribuer a  l'amelioration continue du travail
+I1304;300080;Proceder a  des tests, experimentations
+I1304;300124;Comprendre, interpreter des donnees et documents techniques
+I1304;402191;Lire et interpreter des donnees et documents techniques au besoin en anglais
+I1304;400355;Lire et exploiter un plan, un schema
+I1304;300440;Animer, coordonner une equipe
+I1304;300444;Valoriser et partager les bonnes pratiques
+I1304;300008;Cartographier et classifier les emplois et les competences
+I1304;300019;Accompagner l'appropriation d'un outil par ses utilisateurs
+I1304;400671;Accompagner les clients et utilisateurs dans la prise en main de l'equipement
+I1304;300021;Transmettre une technique, un savoir-faire
+I1304;300636;Organiser et planifier une activite
+I1304;300408;Rediger un rapport, un compte rendu d'activite
+I1304;300308;Estimer les couts et les delais d'une activite ou d'une prestation
+I1304;300184;Apporter une assistance technique
+I1304;400745;Etablir un devis d'intervention
+I1304;402220;Organiser et programmer les activites et operations de maintenance
+I1304;300067;Analyser, exploiter, structurer des donnees
+I1304;402213;Mobiliser des donnees massives pour eclairer les prises de decisions
+I1304;402028;Analyser des donnees de maintenance
+I1304;300125;Renseigner, mettre a  jour une documentation technique
+I1304;300428;Utiliser des logiciels specifiques
+I1304;300431;Etablir, mettre a  jour un dossier, une base de donnees
+I1304;300448;Respecter des regles, des consignes, normes et procedures operationnelles
+I1304;300449;Expliquer et faire respecter les regles et proceduresÂ 
+I1304;300452;Collecter et analyser des informations
+I1304;300474;Alerter, en qualifiant la nature du probleme
+I1304;300451;Transmettre de l'information
+I1304;402226;Participer a  un travail collaboratif
+I1304;300465;Travailler en equipe
+I1304;300460;Faire preuve d'autonomie
+I1304;300490;Faire preuve de rigueur et de precision
+I1304;300479;S'adapter aux changements
+M1802;300081;Realiser une veille technique ou technologique pour anticiper les evolutions
+M1802;300084;Concevoir et animer une demarche d'innovation
+M1802;300126;Creer une documentation technique
+M1802;300188;Rediger un cahier des charges, des specifications techniques
+M1802;300203;Gerer une base de donnees numeriques
+M1802;400568;Parametrer un logiciel metier et l'interfacer a  d'autres applicatifs
+M1802;300199;Developper un logiciel, un systeme d'informations, une application
+M1802;300202;Deployer, integrer un logiciel, un systeme d'informations, une application
+M1802;120340;Proceder aux phases de tests et de recettes des applications developpees
+M1802;300195;Concevoir un logiciel, un systeme d'informations, une application
+M1802;300589;Concevoir et organiser une solution blockchain
+M1802;400759;Integrer des outils IA/Data Science
+M1802;300366;Recueillir et analyser les besoins client
+M1802;400199;Identifier les besoins en logiciel
+M1802;300184;Apporter une assistance technique
+M1802;300374;Presenter et valoriser un produit ou un service
+M1802;117346;Assurer un role de support avant-vente
+M1802;117708;Repondre a  un appel d'offre
+M1802;300487;Piloter une activite
+M1802;300488;Concevoir et gerer un projet
+M1802;300440;Animer, coordonner une equipe
+M1802;300575;Allouer et organiser les ressources d'un projet selon les besoins et contraintes
+M1802;300016;Conseiller une organisation, une structure
+M1802;300019;Accompagner l'appropriation d'un outil par ses utilisateurs
+M1802;300148;Elaborer des actions ou des regles de prevention
+M1802;300149;Evaluer, prevenir, et gerer les risques et la securite
+M1802;115801;Gerer la securite informatique
+M1802;400176;Mener un processus de test en cybersecurite
+M1802;115246;Veiller au respect de la loi Informatique et Libertes et du RGPD dans l'entreprise, gerer la liste des traitements de donnees a  caractere personnel, faire l'interface avec la Commission Nationale de l'Informatique et des Libertes - CNIL
+M1802;300611;Gerer des donnees massives
+M1802;300253;Controler la conformite des donnees ou des documents
+M1802;300449;Expliquer et faire respecter les regles et proceduresÂ 
+M1802;300458;Structurer, synthetiser des informations
+M1802;300579;Communiquer aupres de ses clients internes et externes
+M1802;300406;Communiquer a  l'ecrit en langue etrangere
+M1802;300411;Communiquer a  l'oral en langue etrangere
+M1802;300495;Evaluer le resultat de ses actions
+M1802;300465;Travailler en equipe
+M1802;300467;Prendre des initiatives et aªtre force de proposition
+M1802;300460;Faire preuve d'autonomie
+M1203;300305;Effectuer le suivi des commandes, la facturation
+M1203;300306;Gerer la paie
+M1203;117600;Etablir un bulletin de paie
+M1203;121105;Optimiser un processus de paie
+M1203;123912;Preparer les elements constitutifs de la paie
+M1203;124089;Reviser une procedure comptable
+M1203;124377;Assurer la gestion administrative d'une activite
+M1203;300323;Elaborer, suivre et piloter un budget
+M1203;300318;Realiser des operations comptables
+M1203;117141;Codifier un titre
+M1203;121908;Conditionner des fonds et valeurs
+M1203;123228;Enregistrer les recettes d'une entreprise
+M1203;122804;Etablir un etat de rapprochement bancaire
+M1203;122050;Controler les recettes d'une entreprise
+M1203;124323;Rediger des documents comptables en anglais
+M1203;124777;Superviser des operations d'inventaire comptable
+M1203;119892;Etablir un reporting de tresorerie
+M1203;300328;Gerer un patrimoine, un portefeuille d'actifs
+M1203;109400;Suivre des sequestres conventionnels
+M1203;113782;Etablir un contrat de travail
+M1203;121716;Calculer une commission de performance
+M1203;300379;Developper et fideliser la relation client
+M1203;300487;Piloter une activite
+M1203;118990;Elaborer des tableaux de bord
+M1203;119912;Analyser les resultats des ventes
+M1203;300401;Diriger et gerer un ensemble, une structure, une organisation
+M1203;118772;Etablir l'etat d'avancement de travaux
+M1203;300259;Realiser un inventaire
+M1203;125971;Definir des besoins en approvisionnement
+M1203;300261;Organiser et controler un approvisionnement
+M1203;300440;Animer, coordonner une equipe
+M1203;300016;Conseiller une organisation, une structure
+M1203;117731;Parametrer un systeme d'information comptable
+M1203;300253;Controler la conformite des donnees ou des documents
+M1203;117139;Codifier une facture
+M1203;300426;Utiliser les outils bureautiques
+M1203;300431;Etablir, mettre a  jour un dossier, une base de donnees
+M1203;120708;Etablir des declarations fiscales et sociales
+M1203;117140;Codifier un mandat
+M1203;124584;Saisir des titres
+M1203;123957;Preparer les elements constitutifs d'un mandatement
+M1203;300465;Travailler en equipe
+M1203;300460;Faire preuve d'autonomie
+M1203;300490;Faire preuve de rigueur et de precision
+H2603;300129;Mettre en oeuvre les processus et les modes operatoires techniques
+H2603;124184;Realiser une intervention necessitant une habilitation
+H2603;300135;Monter et regler une installation, une machine
+H2603;300174;Elaborer et planifier un programme de production, d'exploitation
+H2603;104854;Surveiller l'approvisionnement des machines, des installations et le flux des matieres ou des produits
+H2603;300214;Appliquer un traitement, un produit
+H2603;105762;Realiser des operations de traitement thermique
+H2603;300232;Fabriquer, faa§onner des produits
+H2603;300153;Utiliser une installation, une machine
+H2603;300181;Entretenir un equipement, une machine, une installation
+H2603;300180;Controler la conformite d'un equipement, d'une machine, d'une installation
+H2603;300185;Realiser un diagnostic technique
+H2603;105755;Realiser la maintenance d'un equipement de production au premier niveau
+H2603;104016;Controler les systemes de securite
+H2603;300242;Determiner des mesures correctives
+H2603;114762;Identifier des evolutions dans les modes de production, modes de controles et les presenter aux services methodes, etudes, maintenance, ...
+H2603;300255;Controler la qualite et la conformite d'un produit
+H2603;105747;Detecter les dysfonctionnements relatifs aux produits, outils de production et informer le service maintenance
+H2603;300256;Controler la qualite et la conformite d'un livrable
+H2603;105742;Selectionner ou verifier les recettes et programmes de fabrication, selon les caracteristiques du produit (cartes, puces, circuits imprimes, ...)
+H2603;300080;Proceder a  des tests, experimentations
+H2603;300440;Animer, coordonner une equipe
+H2603;402008;Reduire l'empreinte environnementale de son activite
+H2603;300426;Utiliser les outils bureautiques
+H2603;300452;Collecter et analyser des informations
+H2603;300474;Alerter, en qualifiant la nature du probleme
+H2603;402226;Participer a  un travail collaboratif
+H2603;300467;Prendre des initiatives et aªtre force de proposition
+H2603;300460;Faire preuve d'autonomie
+H2603;300490;Faire preuve de rigueur et de precision
