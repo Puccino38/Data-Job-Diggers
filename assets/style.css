@@ -1,6 +1,6 @@
 /* Position the banner and logo in the header */
 .header {
-    background-color: #0d4030; /* slightly lighter green for the header */
+    background-color: #358B53; /* slightly lighter green for the header */
     text-align: center;
     padding: 10px;
     position: relative; /* Make the header a relative positioning context */
@@ -52,5 +52,19 @@ header {
     background-color: #165a4b; /* darker green on hover */
 }
 
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #e0f2e9;
+}
 /* ... rest of your CSS */
 
