@@ -607,7 +607,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    axios.get('mnt/data/filtered_data.csv')
+    axios.get('filtered_data.csv')
         .then(function (response) {
             // Traitez les données CSV ici (par exemple, avec PapaParse)
             var data = Papa.parse(response.data, {
@@ -625,7 +625,7 @@
 <script>
  document.addEventListener('DOMContentLoaded', function() {
     // Charger les données CSV initialement et remplir les menus déroulants
-    Papa.parse('chemin/vers/votre/la_bonne_boite.csv', {
+    Papa.parse('la_bonne_boite.csv', {
         download: true,
         header: true,
         complete: function(results) {
