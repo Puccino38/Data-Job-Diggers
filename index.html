@@ -625,6 +625,8 @@
 </script>
 // filtrage et crétion des menus de la bonne boite
 <script>
+let originalData = []; // Déclaration au niveau global
+
 document.addEventListener('DOMContentLoaded', function() {
     // Charger les données CSV initialement et remplir les menus déroulants
     Papa.parse('la_bonne_boite.csv', {
