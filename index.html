@@ -352,7 +352,31 @@
     <h2>La bonne boite</h2>
     <p>La bonne boite est une API d'un partenaire de pole emploi/France travail qui permet d'accéder à un listing des entreprises ayant un fort potentiel d'embauche.</p>
     <p>La base de donnée La bonne boite est mise à jour 14 fois par mois</p>
+    <label for="filter-postal-code">Code Postal :</label>
+<select id="filter-postal-code">
+    <option value="tous">Tous</option>
+</select>
+
+<label for="filter-estimated-region">Région Estimée :</label>
+<select id="filter-estimated-region">
+    <option value="tous">Toutes</option>
+</select>
+
+<button onclick="filterData()">Filtrer</button>
     <div id="csv-data-display"></div> <!-- Container for displaying CSV data -->
+    <!-- Tableau pour afficher les données CSV -->
+<table>
+    <thead>
+        <tr>
+            <th>ROME_Code</th>
+            <th>Nom</th>
+            <!-- Ajoutez des en-têtes de colonne supplémentaires ici -->
+        </tr>
+    </thead>
+    <tbody id="data-table-body">
+        <!-- Les données filtrées seront insérées ici -->
+    </tbody>
+</table>
     </section>
         
     <section id="a-propos">
@@ -600,47 +624,26 @@
 </script>
 <script>
  document.addEventListener('DOMContentLoaded', function() {
-    // Assuming you've got a button or a way to trigger this loading when needed
-    Papa.parse('la_bonne_boite.csv', { // Make sure the path is correct
+    // Charger les données CSV initialement et remplir les menus déroulants
+    Papa.parse('chemin/vers/votre/la_bonne_boite.csv', {
         download: true,
         header: true,
         complete: function(results) {
-            console.log(results);
             const data = results.data;
-            const container = document.getElementById('csv-data-display');
-            container.innerHTML = ''; // Clear previous contents
-            const table = document.createElement('table');
-            table.classList.add('data-table'); // Add your CSS class for styling
-
-            // Create table header row based on CSV header
-            const thead = document.createElement('thead');
-            let headerRow = '<tr>';
-            if(data.length > 0) {
-                Object.keys(data[0]).forEach(header => {
-                    headerRow += `<th>${header}</th>`;
-                });
-            }
-            headerRow += '</tr>';
-            thead.innerHTML = headerRow;
-            table.appendChild(thead);
-
-            // Populate table rows with CSV data
-            const tbody = document.createElement('tbody');
-            data.forEach(row => {
-                let dataRow = '<tr>';
-                Object.values(row).forEach(cell => {
-                    dataRow += `<td>${cell}</td>`;
-                });
-                dataRow += '</tr>';
-                tbody.innerHTML += dataRow;
-            });
-            table.appendChild(tbody);
-
-            // Append the table to the container
-            container.appendChild(table);
+            // Logique pour remplir les menus déroulants
+            // Utilisez displayData(data) pour afficher toutes les données initialement
         }
     });
 });
+
+function filterData() {
+    // Logique pour filtrer les données en fonction des sélections de l'utilisateur
+    // et pour appeler displayData avec les données filtrées
+}
+
+function displayData(data) {
+    // Logique pour afficher les données dans le tableau HTML
+}
    
 </script>
 </body>
