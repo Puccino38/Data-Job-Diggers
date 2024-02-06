@@ -662,11 +662,13 @@ function fillDropdowns(data) {
 // Fonction pour filtrer les données en fonction des sélections des menus déroulants
 function filterData() {
     const selectedPostalCode = document.getElementById('filter-postal-code').value;
-    // Supposons que `originalData` est votre tableau de données original chargé depuis le CSV
+    console.log("Filtrage pour le code postal:", selectedPostalCode); // Debug
     const filteredData = originalData.filter(row => {
+        console.log(row.Postal_Code); // Voir la valeur de chaque code postal
         return selectedPostalCode === 'tous' || row.Postal_Code === selectedPostalCode;
     });
 
+    console.log(filteredData); // Vérifiez si le résultat filtré est vide
     displayData(filteredData);
 }
 
