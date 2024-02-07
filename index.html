@@ -669,7 +669,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Filter data based on selected postal code and display
     function filterData() {
         const selectedCode_postal = document.getElementById('filter-Code_postal').value;
-        const filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal || selectedCode_postal === 'tous');
+        const filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal || selectedPostal_Code === 'tous');
         displayData(filteredData);
     }
 
