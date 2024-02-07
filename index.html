@@ -666,16 +666,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Filter data based on selected postal code and display
     function filterData() {
-    const selectedCode_postal = document.getElementById('filter-Code_postal').value;
-    console.log("Filtrage pour le code postal:", selectedCode_postal); // Debug
-    const filteredData = originalData.filter(row => {
-        console.log(row.Code_postal); // Voir la valeur de chaque code postal
-        return selectedCode_postal === 'tous' || row.Code_postal === selectedCode_postal;
-    });
-
-    console.log(filteredData); // Vérifiez si le résultat filtré est vide
-    displayData(filteredData);
-}
+        const selectedCode_postal = document.getElementById('filter-Code_postal').value;
+        const filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal || selectedCode_postal === 'tous');
+        displayData(filteredData);
+    }
 
     // Display filtered data in table
     function displayData(data) {
