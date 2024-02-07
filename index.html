@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Job Diggers</title>
     <link rel="stylesheet" href="assets/bot.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script>
         d3.csv("la_bonne_boite.csv", function(data1) {
             // Traiter les données du premier fichier et créer des graphiques
@@ -33,13 +39,7 @@
             }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Job Diggers</title>
     <style>
         .member-row {
             display: flex;
@@ -182,6 +182,7 @@
         }
     </style>
 </head>
+
 <body>
 <header>
     <img src="assets/Data_job_diggers.png" alt="Job Diggers Logo" height="250" width="250"/>
@@ -609,9 +610,9 @@
 
     // Show the "Analyse de données" section
     document.getElementById('analyse-de-donnée').style.display = 'block';
-    <!-- Intégration des scripts Botpress -->
+    // Intégration des scripts Botpress
 
-    src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         
 </script>
 
@@ -635,24 +636,26 @@
 // filtrage et crétion des menus de la bonne boite
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Variable globale pour stocker les données CSV
-    let originalData = []; 
+    let originalData = []; // This will store the fetched data
 
-    // Appel à Papa.parse pour charger et traiter le fichier CSV
+    // Use PapaParse to load and parse the CSV file
     Papa.parse('la_bonne_boite.csv', {
         download: true,
         header: true,
+        dynamicTyping: true,
         complete: function(results) {
             originalData = results.data;
             fillDropdowns(originalData);
-            filterData(); // Appelez filterData pour afficher initialement toutes les données
+            // Initially filter and display all data
+            filterData();
         }
     });
 
-    // Fonction pour remplir le menu déroulant avec les codes postaux uniques
+    // Populate dropdown menu with unique postal codes
     function fillDropdowns(data) {
         let uniqueCodesPostal = new Set(data.map(item => item.Code_postal));
         let Code_postalSelect = document.getElementById('filter-Code_postal');
+        
         uniqueCodesPostal.forEach(code => {
             let option = document.createElement("option");
             option.value = code;
@@ -661,17 +664,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 
-    // Fonction pour filtrer les données en fonction du code postal sélectionné
+    // Filter data based on selected postal code and display
     function filterData() {
         const selectedCode_postal = document.getElementById('filter-Code_postal').value;
-        const filteredData = originalData.filter(item => selectedCode_postal === 'tous' || item.Code_postal === selectedCode_postal);
+        const filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal || selectedCode_postal === 'tous');
         displayData(filteredData);
     }
 
-    // Fonction pour afficher les données filtrées dans le tableau HTML
+    // Display filtered data in table
     function displayData(data) {
         const tableBody = document.getElementById('data-table-body');
-        tableBody.innerHTML = ''; // Efface les données précédentes
+        tableBody.innerHTML = ''; // Clear previous data
         data.forEach(row => {
             const tr = document.createElement('tr');
             tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Entreprise}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Code_postal}</td><td>${row.dpt}</td>`;
