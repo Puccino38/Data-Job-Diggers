@@ -299,27 +299,27 @@
         </script>
     
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-<script>
-  window.botpressWebChat.init({
-      "composerPlaceholder": "Trouvons des annonces ensemble",
-      "botConversationDescription": "Job digger vous aide à trouver votre futur job",
-      "botId": "96325f0e-d947-46a4-8d0e-bb2f666c82f1",
-      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
-      "messagingUrl": "https://messaging.botpress.cloud",
-      "clientId": "96325f0e-d947-46a4-8d0e-bb2f666c82f1",
-      "webhookId": "94144dfe-adbf-4966-a598-c762cd314a4b",
-      "lazySocket": true,
-      "themeName": "prism",
-      "botName": "Job digger",
-      "stylesheet": "https://csvprojet3.s3.eu-north-1.amazonaws.com/bot.css",
-      "frontendVersion": "v1",
-      "useSessionStorage": true,
-      "enableConversationDeletion": true,
-      "showPoweredBy": true,
-      "theme": "prism",
-      "themeColor": "#2563eb"
-  });
-</script>
+    <script>
+      window.botpressWebChat.init({
+          "composerPlaceholder": "Trouvons des annonces ensemble",
+          "botConversationDescription": "Job digger vous aide à trouver votre futur job",
+          "botId": "96325f0e-d947-46a4-8d0e-bb2f666c82f1",
+          "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "clientId": "96325f0e-d947-46a4-8d0e-bb2f666c82f1",
+          "webhookId": "94144dfe-adbf-4966-a598-c762cd314a4b",
+          "lazySocket": true,
+          "themeName": "prism",
+          "botName": "Job digger",
+          "stylesheet": "https://csvprojet3.s3.eu-north-1.amazonaws.com/bot.css",
+          "frontendVersion": "v1",
+          "useSessionStorage": true,
+          "enableConversationDeletion": true,
+          "showPoweredBy": true,
+          "theme": "prism",
+          "themeColor": "#2563eb"
+      });
+    </script>
     
         <div class="side-menu">
             <div class="menu-item">
@@ -456,26 +456,7 @@
 
 </style>
 
-    <!-- Scripts and Function Definition -->
-    
-    // // Define showSection at the top of the script
-    // function showSection(sectionId) {
-    // console.log("showSection called with: " + sectionId);
-    //     // Hide all sections
-    //     var sections = document.querySelectorAll('section');
-    //     sections.forEach(function(section) {
-    //         section.style.display = 'none';
-    //     });
 
-    //     // Show the selected section
-    //     var selectedSection = document.getElementById(sectionId);
-    //     if (selectedSection) {
-    //     selectedSection.style.display = 'block';
-    //     }}
-
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     // Set the default section on page load
-    //     showSection('accueil');
 
     <script>
     // Charger le fichier CSV en utilisant PapaParse
@@ -666,10 +647,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Filter data based on selected postal code and display
     function filterData() {
-        const selectedCode_postal = document.getElementById('filter-Code_postal').value;
-        const filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal || selectedCode_postal === 'tous');
-        displayData(filteredData);
+    const selectedCode_postal = document.getElementById('filter-Code_postal').value;
+    let filteredData;
+    if (selectedCode_postal === 'tous') {
+        filteredData = originalData;
+    } else {
+        filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal);
     }
+    displayData(filteredData);
+}
 
     // Display filtered data in table
     function displayData(data) {
