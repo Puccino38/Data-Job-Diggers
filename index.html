@@ -653,8 +653,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Populate dropdown menu with unique postal codes
     function fillDropdowns(data) {
-        // Assurez-vous que 'Code_postal' correspond exactement au nom de la colonne dans le CSV
-        let uniqueCodesPostal = new Set(data.map(item => item.Code_postal));
+        let uniqueCodesPostal = new Set(data.map(item => item.Postal_Code.toString())); // Conversion en chaîne pour l'affichage
         console.log(uniqueCodesPostal); // Pour déboguer et voir les codes postaux uniques
         let Code_postalSelect = document.getElementById('filter-Code_postal');
         
@@ -669,7 +668,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Filter data based on selected postal code and display
     function filterData() {
         const selectedCode_postal = document.getElementById('filter-Code_postal').value;
-        const filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal || selectedCode_Postal === 'tous');
+        const filteredData = originalData.filter(item => item.Postal_Code.toString() === selectedCode_postal || selectedCode_postal === 'tous');
         displayData(filteredData);
     }
 
@@ -678,14 +677,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const tableBody = document.getElementById('data-table-body');
         tableBody.innerHTML = ''; // Clear previous data
         data.forEach(row => {
-            // Utilisez les noms de colonnes exacts de votre fichier CSV pour les clés de l'objet 'row'
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom || ''}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Postal_Code}</td><td>${row.dpt}</td>`;
+            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Postal_Code}</td><td>${row.dpt}</td>`; // Assurez-vous que les noms de propriétés correspondent
             tableBody.appendChild(tr);
         });
     }
 });
 </script>
+
 
 </body>
 </html>
