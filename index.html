@@ -681,6 +681,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             tableBody.appendChild(tr);
         });
     }
+    // Attachez ici le gestionnaire d'événement 'change' au menu déroulant
+    document.getElementById('filter-Code_postal').addEventListener('change', filterData);
 });
 </script>
 </body>
