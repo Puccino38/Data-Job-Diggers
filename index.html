@@ -646,27 +646,36 @@
         });
 </script>
 
-// filtrage et création des menus de la bonne boite
+// filtrage et création des menus de la bonne boite & compétences
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    let originalData = []; // Pour stocker les données chargées
-
-    // Chargement et analyse du fichier CSV
+    // Chargement initial des données pour "La bonne boite"
+    let originalDataLaBonneBoite = []; // Pour stocker les données de "La bonne boite"
     Papa.parse('la_bonne_boite.csv', {
         download: true,
         header: true,
         complete: function(results) {
-            originalData = results.data;
-            fillDropdowns(); // Remplir les menus déroulants après le chargement des données
-            displayData(originalData); // Afficher initialement toutes les données
+            originalDataLaBonneBoite = results.data;
+            fillDropdownLaBonneBoite();
+            displayDataLaBonneBoite(originalDataLaBonneBoite); // Afficher toutes les données initialement
         }
     });
 
-    // Remplir les menus déroulants avec des codes postaux uniques
-    function fillDropdowns() {
-        const postalCodeSelect = document.getElementById('filter-Code_postal');
-        const uniquePostalCodes = Array.from(new Set(originalData.map(item => item.Code_postal)));
+    // Chargement initial des données pour "Compétences"
+    let originalDataCompetences = []; // Pour stocker les données de "Compétences"
+    Papa.parse('rome_competence.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            originalDataCompetences = results.data;
+            fillDropdownCompetences();
+            displayDataCompetences(originalDataCompetences); // Afficher toutes les données initialement
+        }
+    });
 
+    function fillDropdownLaBonneBoite() {
+        const postalCodeSelect = document.getElementById('filter-Code_postal');
+        const uniquePostalCodes = Array.from(new Set(originalDataLaBonneBoite.map(item => item.Code_postal))).sort();
         uniquePostalCodes.forEach(code => {
             const option = document.createElement('option');
             option.value = option.textContent = code;
@@ -674,88 +683,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Filtrer les données en fonction du code postal sélectionné
-    function filterDataLaBonneBoite() {
-    const selectedPostalCode = document.getElementById('filter-Code_postal_la_bonne_boite').value;
-    const filteredData = selectedPostalCode === 'tous' ?
-        originalDataLaBonneBoite :
-        originalDataLaBonneBoite.filter(item => item.Code_postal === selectedPostalCode);
-
-    displayDataLaBonneBoite(filteredData);
-}
-
-    // Afficher les données filtrées dans le tableau
-    function displayDataLaBonneBoite(data) {
-    const tableBody = document.getElementById('data-table-body-la-bonne-boite');
-    tableBody.innerHTML = ''; // Nettoyer les données précédentes
-    data.forEach(row => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${row.ROME_Code}</td>
-            <td>${row.Nom}</td>
-            <td>${row.Adresse}</td>
-            <td>${row.Potentiel_d_embauche}</td>
-            <td>${row.Code_postal}</td>
-            <td>${row.dpt}</td>
-        `;
-        tableBody.appendChild(tr);
-    });
-}
-});
-</script>
-
-// filtrage et création des menus de competences
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    let originalData = []; // Pour stocker les données chargées
-
-    // Chargement et analyse du fichier CSV
-    Papa.parse('rome_competence.csv', {
-        download: true,
-        header: true,
-        complete: function(results) {
-            originalData = results.data;
-            fillDropdowns(); // Remplir les menus déroulants après le chargement des données
-            displayData(originalData); // Afficher initialement toutes les données
-        }
-    });
-
-    // Remplir les menus déroulants avec des codesrome uniques
-    function fillDropdowns() {
+    function fillDropdownCompetences() {
         const codeROMESelect = document.getElementById('filter-codeROME');
-        const uniquecodeROME = Array.from(new Set(originalData.map(item => item.codeROME)));
-
-        uniquecodeROME.forEach(code => {
+        const uniqueCodesROME = Array.from(new Set(originalDataCompetences.map(item => item.codeROME))).sort();
+        uniqueCodesROME.forEach(code => {
             const option = document.createElement('option');
             option.value = option.textContent = code;
             codeROMESelect.appendChild(option);
         });
     }
 
-    // Filtrer les données en fonction du codeRome sélectionné
-    function filterDataCompetences() {
-    const selectedCodeROME = document.getElementById('filter-codeROME-competences').value;
-    const filteredData = selectedCodeROME === 'tous' ?
-        originalDataCompetences :
-        originalDataCompetences.filter(item => item.codeROME === selectedCodeROME);
+    // Définir les fonctions de filtrage
+    window.filterDataLaBonneBoite = function() {
+        const selectedPostalCode = document.getElementById('filter-Code_postal').value;
+        const filteredData = selectedPostalCode === 'tous'
+            ? originalDataLaBonneBoite
+            : originalDataLaBonneBoite.filter(item => item.Code_postal === selectedPostalCode);
+        displayDataLaBonneBoite(filteredData);
+    };
 
-    displayDataCompetences(filteredData);
-}
+    window.filterDataCompetences = function() {
+        const selectedCodeROME = document.getElementById('filter-codeROME').value;
+        const filteredData = selectedCodeROME === 'tous'
+            ? originalDataCompetences
+            : originalDataCompetences.filter(item => item.codeROME === selectedCodeROME);
+        displayDataCompetences(filteredData);
+    };
 
-    // Afficher les données filtrées dans le tableau
+    // Affichage des données pour "La bonne boite"
+    function displayDataLaBonneBoite(data) {
+        const tableBodyLaBonneBoite = document.getElementById('data-table-body-la-bonne-boite');
+        tableBodyLaBonneBoite.innerHTML = '';
+        data.forEach(item => {
+            let row = `<tr>
+                <td>${item.ROME_Code}</td>
+                <td>${item.Entreprise}</td>
+                <td>${item.Adresse}</td>
+                <td>${item.Potentiel_d_embauche}</td>
+                <td>${item.Code_postal}</td>
+                <td>${item.dpt}</td>
+            </tr>`;
+            tableBodyLaBonneBoite.innerHTML += row;
+        });
+    }
+
+    // Affichage des données pour "Compétences"
     function displayDataCompetences(data) {
-    const tableBody = document.getElementById('data-table-body-competences');
-    tableBody.innerHTML = ''; // Nettoyer les données précédentes
-    data.forEach(row => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${row.codeROME}</td>
-            <td>${row.codeCompetence}</td>
-            <td>${row.libelleCompetence}</td>
-        `;
-        tableBody.appendChild(tr);
-    });
-}
+        const tableBodyCompetences = document.getElementById('data-table-body-competences');
+        tableBodyCompetences.innerHTML = '';
+        data.forEach(item => {
+            let row = `<tr>
+                <td>${item.codeROME}</td>
+                <td>${item.codeCompetence}</td>
+                <td>${item.libelleCompetence}</td>
+            </tr>`;
+            tableBodyCompetences.innerHTML += row;
+        });
+    }
 });
 </script>
 </body>
