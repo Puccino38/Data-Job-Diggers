@@ -646,8 +646,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         complete: function(results) {
             originalData = results.data;
             fillDropdowns(originalData);
-            // Initially filter and display all data
-            filterData();
+            filterData(); // Initially filter and display all data
         }
     });
 
@@ -677,7 +676,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         tableBody.innerHTML = ''; // Clear previous data
         data.forEach(row => {
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Entreprise}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Code_postal}</td><td>${row.dpt}</td>`;
+            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Code_postal}</td><td>${row.dpt}</td>`;
             tableBody.appendChild(tr);
         });
     }
