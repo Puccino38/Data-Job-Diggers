@@ -54,9 +54,10 @@ body {
 }
 
 .data-table th, .data-table td {
+    width: 20%; /* Ajustez cette valeur en fonction du nombre de colonnes et de la largeur désirée */
+    text-align: left;
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
 }
 
 .data-table th {
