@@ -361,14 +361,14 @@
     <p>La base de donnée 'La bonne boite' est mise à jour une fois par mois.</p>
 
     <label for="filter-Code_postal">Code Postal :</label>
-    <select id="filter-Code_postal">
+    <select id="filter-Code_postal_la_bonne_boite">
         <option value="tous">Tous</option>
         <!-- Les options supplémentaires seront ajoutées dynamiquement par JavaScript -->
     </select>
 
-    <button onclick="filterData()">Filtrer</button>
+    <button onclick="filterDataLaBonneBoite()">Filtrer</button>
     
-    <div id="csv-data-display"></div> <!-- Container for displaying CSV data -->
+    <div id="csv-data-display-la-bonne-boite"></div> <!-- Container for displaying CSV data -->
     
     <!-- Tableau pour afficher les données CSV -->
     <table>
@@ -382,7 +382,7 @@
                 <th>dpt</th>
             </tr>
         </thead>
-        <tbody id="data-table-body">
+        <tbody id="data-table-body-la-bonne-boite">
             <!-- Les données filtrées seront insérées ici -->
         </tbody>
     </table>
@@ -394,14 +394,14 @@
         <p>pour extrairte les compétences liées au code ROME des métiers de la DATA.</p>
     
         <label for="filter-codeROME">Code Postal :</label>
-        <select id="filter-codeROME">
-            <option value="tous">Tous</option>
+        <select id="filter-codeROME-competences">
+        <option value="tous">Tous</option>
             <!-- Les options supplémentaires seront ajoutées dynamiquement par JavaScript -->
         </select>
     
-        <button onclick="filterData()">Filtrer</button>
+        <button onclick="filterDataCompetences()">Filtrer</button>
         
-        <div id="csv-data-display"></div> <!-- Container for displaying CSV data -->
+        <div id="csv-data-display-competences"></div> <!-- Container for displaying CSV data -->
         
         <!-- Tableau pour afficher les données CSV -->
         <table>
@@ -412,7 +412,7 @@
                     <th>libelleCompetence</th>
                 </tr>
             </thead>
-            <tbody id="data-table-body">
+            <tbody id="data-table-body-competences">
                 <!-- Les données filtrées seront insérées ici -->
             </tbody>
         </table>
@@ -675,33 +675,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Filtrer les données en fonction du code postal sélectionné
-    window.filterData = function() {
-        const selectedPostalCode = document.getElementById('filter-Code_postal').value;
-        const filteredData = selectedPostalCode === 'tous'
-            ? originalData
-            : originalData.filter(item => item.Code_postal === selectedPostalCode);
+    function filterDataLaBonneBoite() {
+    const selectedPostalCode = document.getElementById('filter-Code_postal_la_bonne_boite').value;
+    const filteredData = selectedPostalCode === 'tous' ?
+        originalDataLaBonneBoite :
+        originalDataLaBonneBoite.filter(item => item.Code_postal === selectedPostalCode);
 
-        displayData(filteredData);
-    };
+    displayDataLaBonneBoite(filteredData);
+}
 
     // Afficher les données filtrées dans le tableau
-    function displayData(data) {
-        const tableBody = document.getElementById('data-table-body');
-        tableBody.innerHTML = ''; // Nettoyer les données précédentes
-
-        data.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${row.ROME_Code}</td>
-                <td>${row.Nom}</td>
-                <td>${row.Adresse}</td>
-                <td>${row.Potentiel_d_embauche}</td>
-                <td>${row.Code_postal}</td>
-                <td>${row.dpt}</td>
-            `;
-            tableBody.appendChild(tr);
-        });
-    }
+    function displayDataLaBonneBoite(data) {
+    const tableBody = document.getElementById('data-table-body-la-bonne-boite');
+    tableBody.innerHTML = ''; // Nettoyer les données précédentes
+    data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${row.ROME_Code}</td>
+            <td>${row.Nom}</td>
+            <td>${row.Adresse}</td>
+            <td>${row.Potentiel_d_embauche}</td>
+            <td>${row.Code_postal}</td>
+            <td>${row.dpt}</td>
+        `;
+        tableBody.appendChild(tr);
+    });
+}
 });
 </script>
 
@@ -721,7 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Remplir les menus déroulants avec des codes postaux uniques
+    // Remplir les menus déroulants avec des codesrome uniques
     function fillDropdowns() {
         const codeROMESelect = document.getElementById('filter-codeROME');
         const uniquecodeROME = Array.from(new Set(originalData.map(item => item.codeROME)));
@@ -733,31 +732,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Filtrer les données en fonction du code postal sélectionné
-    window.filterData = function() {
-        const selectedcodeROME = document.getElementById('filter-codeROME').value;
-        const filteredData = selectedcodeROME === 'tous'
-            ? originalData
-            : originalData.filter(item => item.codeROME === selectedcodeROME);
+    // Filtrer les données en fonction du codeRome sélectionné
+    function filterDataCompetences() {
+    const selectedCodeROME = document.getElementById('filter-codeROME-competences').value;
+    const filteredData = selectedCodeROME === 'tous' ?
+        originalDataCompetences :
+        originalDataCompetences.filter(item => item.codeROME === selectedCodeROME);
 
-        displayData(filteredData);
-    };
+    displayDataCompetences(filteredData);
+}
 
     // Afficher les données filtrées dans le tableau
-    function displayData(data) {
-        const tableBody = document.getElementById('data-table-body');
-        tableBody.innerHTML = ''; // Nettoyer les données précédentes
-
-        data.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.innerHTML =  `
-                <td>${row.codeROME}</td>
-                <td>${row.codeCompetence}</td>
-                <td>${row.libelleCompetence}</td>
-            `;
-            tableBody.appendChild(tr);
-        });
-    }
+    function displayDataCompetences(data) {
+    const tableBody = document.getElementById('data-table-body-competences');
+    tableBody.innerHTML = ''; // Nettoyer les données précédentes
+    data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${row.codeROME}</td>
+            <td>${row.codeCompetence}</td>
+            <td>${row.libelleCompetence}</td>
+        `;
+        tableBody.appendChild(tr);
+    });
+}
 });
 </script>
 </body>
