@@ -631,47 +631,51 @@
 
 // filtrage et crétion des menus de la bonne boite
 <script>
-
 document.addEventListener('DOMContentLoaded', (event) => {
     // Variable globale pour stocker les données CSV
-    let originalData = [];
-    
-Papa.parse('la_bonne_boite.csv', {
-    download: true,
-    header: true,
-    complete: function(results) {
-        originalData = results.data; // Utilisez la variable globale sans "const"
-        fillDropdowns(originalData);
-        filterData(); // Appellez filterData pour afficher initialement toutes les données
+    let originalData = []; 
+
+    // Appel à Papa.parse pour charger et traiter le fichier CSV
+    Papa.parse('la_bonne_boite.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            originalData = results.data;
+            fillDropdowns(originalData);
+            filterData(); // Appelez filterData pour afficher initialement toutes les données
+        }
+    });
+
+    // Fonction pour remplir le menu déroulant avec les codes postaux uniques
+    function fillDropdowns(data) {
+        let uniqueCodesPostal = new Set(data.map(item => item.Code_postal));
+        let Code_postalSelect = document.getElementById('filter-Code_postal');
+        uniqueCodesPostal.forEach(code => {
+            let option = document.createElement("option");
+            option.value = code;
+            option.text = code;
+            Code_postalSelect.appendChild(option);
+        });
+    }
+
+    // Fonction pour filtrer les données en fonction du code postal sélectionné
+    function filterData() {
+        const selectedCode_postal = document.getElementById('filter-Code_postal').value;
+        const filteredData = originalData.filter(item => selectedCode_postal === 'tous' || item.Code_postal === selectedCode_postal);
+        displayData(filteredData);
+    }
+
+    // Fonction pour afficher les données filtrées dans le tableau HTML
+    function displayData(data) {
+        const tableBody = document.getElementById('data-table-body');
+        tableBody.innerHTML = ''; // Efface les données précédentes
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Entreprise}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Code_postal}</td><td>${row.dpt}</td>`;
+            tableBody.appendChild(tr);
+        });
     }
 });
-
-function fillDropdowns(data) {
-    let uniqueCodesPostal = new Set(data.map(item => item.Code_postal));
-    let Code_postalSelect = document.getElementById('filter-Code_postal');
-    uniqueCodesPostal.forEach(code => {
-        let option = document.createElement("option");
-        option.value = code;
-        option.text = code;
-        Code_postalSelect.appendChild(option);
-    });
-}
-
-function filterData() {
-    const selectedCode_postal = document.getElementById('filter-Code_postal').value;
-    const filteredData = originalData.filter(item => selectedCode_postal === 'tous' || item.Code_postal === selectedCode_postal);
-    displayData(filteredData);
-}
-
-function displayData(data) {
-    const tableBody = document.getElementById('data-table-body');
-    tableBody.innerHTML = ''; // Efface les données précédentes
-    data.forEach(row => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Postal_Code}</td><td>${row.dpt}</td>`;
-        tableBody.appendChild(tr);
-    });
-}
 </script>
 
 </body>
