@@ -325,17 +325,17 @@
             <div class="menu-item">
                 <label for="metier">Métier data recherché:</label>
                 <select id="metier">
-                    <option value="data-analyst">Data Analyst</option>
-                    <option value="data-scientist">Data Scientist</option>
-                    <option value="data-engineer">Data Engineer</option>
+                    <option value="data-analyst">data analyst</option>
+                    <option value="data-scientist">data scientist</option>
+                    <option value="data-engineer">data engineer</option>
                 </select>
             </div>
             <div class="menu-item">
                 <label for="contrat">Type de contrat:</label>
                 <select id="contrat">
-                    <option value="full-time">CDI</option>
-                    <option value="part-time">CDD</option>
-                    <option value="internship">MIS</option>
+                    <option value="Contrat indeterminé">CDI</option>
+                    <option value="Contrat determinée">CDD</option>
+                    <option value="Mission d'interim">MIS</option>
                 </select>
             </div>
             <div class="menu-item">
@@ -349,47 +349,43 @@
         </div>
     </section>
     
-    <section id="la_bonne_boite" style="display: none;">
+    <section id="la_bonne_boite" style="display: block;">
     <h2>La bonne boite</h2>
     <p>La bonne boite est une API d'un partenaire de pole emploi/France travail qui permet d'accéder à un listing des entreprises ayant un fort potentiel d'embauche.</p>
-    <p>La base de donnée 'La bonne boite' est mise à jour une fois par mois</p>
+    <p>La base de donnée 'La bonne boite' est mise à jour une fois par mois.</p>
 
     <label for="filter-Code_postal">Code Postal :</label>
     <select id="filter-Code_postal">
-    <option value="tous">Tous</option>
+        <option value="tous">Tous</option>
+        <!-- Les options supplémentaires seront ajoutées dynamiquement par JavaScript -->
     </select>
 
-    <!-- <label for="filter-estimated-region">Région Estimée :</label>
-    <select id="filter-estimated-region">
-    <option value="tous">Toutes</option>
-    </select> -->
-
-<!-- <button onclick="filterData()">Filtrer</button> -->
+    <button onclick="filterData()">Filtrer</button>
+    
     <div id="csv-data-display"></div> <!-- Container for displaying CSV data -->
+    
     <!-- Tableau pour afficher les données CSV -->
-    <p></p>
-    <p></p>
-<table>
-    <thead>
-        <tr>
-            <th>ROME_Code</th>
-            <th>Entreprise</th>
-            <th>Adresse</th>
-            <th>Potentiel_d_embauche</th>
-            <th>Code_postal</th>
-            <th>dpt</th>
-        </tr>
-    </thead>
-    <tbody id="data-table-body">
-        <!-- Les données filtrées seront insérées ici -->
-    </tbody>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>ROME_Code</th>
+                <th>Entreprise</th>
+                <th>Adresse</th>
+                <th>Potentiel d'embauche</th>
+                <th>Code postal</th>
+                <th>dpt</th>
+            </tr>
+        </thead>
+        <tbody id="data-table-body">
+            <!-- Les données filtrées seront insérées ici -->
+        </tbody>
+    </table>
     </section>
         
     <section id="a-propos">
     <h2>À Propos de Nous</h2>
     <p>L'équipe Job digger est composée de 4 membres de la cession remote data 09/23 de la Wild Code School.</p>
-    <p>Nous avons choisi de travailler sur le projet data jobs, car nous allons nous même devoir trouver un travail dans la data très bientôt.</p>
+    <p>Nous avons choisi de travailler sur le projet data jobs, car nous allons devoir trouver un travail dans la data très bientôt.</p>
 
         <div class="member-row">
             <!-- Première ligne -->
@@ -613,7 +609,7 @@
         });
 </script>
 
-// filtrage et crétion des menus de la bonne boite
+// filtrage et création des menus de la bonne boite
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     let originalData = []; // This will store the fetched data
@@ -647,29 +643,34 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Filter data based on selected postal code and display
     function filterData() {
-    const selectedCode_postal = document.getElementById('filter-Code_postal').value;
-    let filteredData;
-    if (selectedCode_postal === 'tous') {
-        filteredData = originalData;
-    } else {
-        filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal);
-    }
+    const selectedPostalCode = document.getElementById('filter-postal-code').value;
+    console.log("Filtrage pour le code postal:", selectedPostalCode); // Pour le débogage
+    const filteredData = originalData.filter(row => {
+        console.log(row['Code_postal']); // Afficher la valeur de chaque code postal pour le débogage
+        return selectedPostalCode === 'tous' || row['Code_postal'] === selectedPostalCode;
+    });
+
+    console.log(filteredData); // Vérifiez si le résultat filtré est vide
     displayData(filteredData);
 }
 
     // Display filtered data in table
     function displayData(data) {
-        const tableBody = document.getElementById('data-table-body');
-        tableBody.innerHTML = ''; // Clear previous data
-        data.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Code_postal}</td><td>${row.dpt}</td>`; // Assurez-vous que les noms des propriétés correspondent à ceux du CSV
-            tableBody.appendChild(tr);
-        });
-    }
-    // Attachez ici le gestionnaire d'événement 'change' au menu déroulant
-    document.getElementById('filter-Code_postal').addEventListener('change', filterData);
-});
+    const tableBody = document.getElementById('data-table-body');
+    tableBody.innerHTML = ''; // Effacer les données précédentes
+    data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${row['ROME_Code']}</td>
+            <td>${row['Nom']}</td>
+            <td>${row['Adresse']}</td>
+            <td>${row['Potentiel_d_embauche']}</td>
+            <td>${row['Code_postal']}</td>
+            <td>${row['dpt']}</td>
+        `;
+        tableBody.appendChild(tr);
+    });
+}
 </script>
 </body>
 </html>
