@@ -669,7 +669,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Filter data based on selected postal code and display
     function filterData() {
         const selectedCode_postal = document.getElementById('filter-Code_postal').value;
-        const filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal || selectedPostal_Code === 'tous');
+        const filteredData = originalData.filter(item => item.Code_postal === selectedCode_postal || selectedCode_Postal === 'tous');
         displayData(filteredData);
     }
 
@@ -680,7 +680,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         data.forEach(row => {
             // Utilisez les noms de colonnes exacts de votre fichier CSV pour les clés de l'objet 'row'
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom || ''}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Code_Postal}</td><td>${row.dpt}</td>`;
+            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom || ''}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Postal_Code}</td><td>${row.dpt}</td>`;
             tableBody.appendChild(tr);
         });
     }
