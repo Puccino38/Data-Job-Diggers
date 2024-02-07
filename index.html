@@ -647,14 +647,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Fonction pour remplir les menus déroulants
 function fillDropdowns(data) {
-    const uniquePostalCodes = new Set();
+    const uniqueCode_postal = new Set();
 
     data.forEach(row => {
-        uniquePostalCodes.add(row.Code_postal);
+        uniqueCode_postal.add(row.Code_postal);
     });
 
     const Code_postalSelect = document.getElementById('filter-postal-code');
-    uniquePostalCodes.forEach(code => {
+    uniqueCode_postal.forEach(code => {
         postalCodeSelect.innerHTML += `<option value="${code}">${code}</option>`;
     });
 
