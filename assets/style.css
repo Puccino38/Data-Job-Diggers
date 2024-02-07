@@ -55,6 +55,7 @@ header {
 .data-table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 30px;
 }
 
 .data-table th, .data-table td {
