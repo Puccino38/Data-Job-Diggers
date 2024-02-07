@@ -32,7 +32,7 @@
                 selectedSection.style.display = 'block';
             }
         }
-        </script>
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
@@ -456,7 +456,7 @@
 </style>
 
     <!-- Scripts and Function Definition -->
-    <script>
+    
     // // Define showSection at the top of the script
     // function showSection(sectionId) {
     // console.log("showSection called with: " + sectionId);
@@ -476,7 +476,7 @@
     //     // Set the default section on page load
     //     showSection('accueil');
 
-    
+    <script>
     // Charger le fichier CSV en utilisant PapaParse
     Papa.parse('la_bonne_boite.csv', {
     header: true,
@@ -610,7 +610,7 @@
     // Show the "Analyse de données" section
     document.getElementById('analyse-de-donnée').style.display = 'block';
     <!-- Intégration des scripts Botpress -->
-
+</script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     axios.get('filtered_data.csv')
