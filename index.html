@@ -676,7 +676,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         tableBody.innerHTML = ''; // Clear previous data
         data.forEach(row => {
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.postal_Code}</td><td>${row.dpt}</td>`;
+            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Postal_Code}</td><td>${row.dpt}</td>`;
             tableBody.appendChild(tr);
         });
     }
