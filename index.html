@@ -101,11 +101,11 @@
 
         .nav-social-links a {
             margin-left: 10px;
+            padding-bottom: 50px;
         }
 
         section {
             padding: 20px;
-            padding-bottom: 50px;
         }
 
         section {
@@ -130,7 +130,7 @@
         .data-table {
         margin-bottom: 80px; /* Ajoute de l'espace au bas du tableau */
         }
-        
+
         .social-icon {
             width: 25px;
             height: 25px;
@@ -198,7 +198,8 @@
         <a href="#accueil" onclick="showSection('accueil'); return false;">Accueil</a>
         <a href="#analyse-de-donnée" onclick="showSection('analyse-de-donnée'); return false;">Analyse de données</a>
         <a href="#dig-ton-data-job" onclick="showSection('dig-ton-data-job'); return false;">Dig ton data job</a>
-        <a href="#a-propos" onclick="showSection('la_bonne_boite'); return false;">La bonne boite</a>
+        <a href="#la-bonne-boite" onclick="showSection('la_bonne_boite'); return false;">La bonne boite</a>
+        <a href="#Competences" onclick="showSection('Competences'); return false;">Compétences</a>
         <a href="#a-propos" onclick="showSection('a-propos'); return false;">À Propos de nous</a>
     </div>
     <div class="nav-social-links">
@@ -386,7 +387,38 @@
         </tbody>
     </table>
     </section>
+    
+    <section id="Competences" style="display: block;">
+        <h2>Compétences</h2>
+        <p>Nous avons utilisé ici l'API fiche métier de pole emploi/ France travail</p>
+        <p>pour extrairte les compétences liées au code ROME des métiers de la DATA.</p>
+    
+        <label for="filter-codeROME">Code Postal :</label>
+        <select id="filter-codeROME">
+            <option value="tous">Tous</option>
+            <!-- Les options supplémentaires seront ajoutées dynamiquement par JavaScript -->
+        </select>
+    
+        <button onclick="filterData()">Filtrer</button>
         
+        <div id="csv-data-display"></div> <!-- Container for displaying CSV data -->
+        
+        <!-- Tableau pour afficher les données CSV -->
+        <table>
+            <thead>
+                <tr>
+                    <th>codeROME</th>
+                    <th>codeCompetence</th>
+                    <th>libelleCompetence</th>
+                </tr>
+            </thead>
+            <tbody id="data-table-body">
+                <!-- Les données filtrées seront insérées ici -->
+            </tbody>
+        </table>
+        </section>
+
+
     <section id="a-propos">
     <h2>À Propos de Nous</h2>
     <p>L'équipe Job digger est composée de 4 membres de la cession remote data 09/23 de la Wild Code School.</p>
@@ -666,6 +698,62 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${row.Potentiel_d_embauche}</td>
                 <td>${row.Code_postal}</td>
                 <td>${row.dpt}</td>
+            `;
+            tableBody.appendChild(tr);
+        });
+    }
+});
+</script>
+
+// filtrage et création des menus de competences
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    let originalData = []; // Pour stocker les données chargées
+
+    // Chargement et analyse du fichier CSV
+    Papa.parse('rome_competence.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            originalData = results.data;
+            fillDropdowns(); // Remplir les menus déroulants après le chargement des données
+            displayData(originalData); // Afficher initialement toutes les données
+        }
+    });
+
+    // Remplir les menus déroulants avec des codes postaux uniques
+    function fillDropdowns() {
+        const codeROMESelect = document.getElementById('filter-codeROME');
+        const uniquecodeROME = Array.from(new Set(originalData.map(item => item.codeROME)));
+
+        uniquecodeROME.forEach(code => {
+            const option = document.createElement('option');
+            option.value = option.textContent = code;
+            codeROMESelect.appendChild(option);
+        });
+    }
+
+    // Filtrer les données en fonction du code postal sélectionné
+    window.filterData = function() {
+        const selectedcodeROME = document.getElementById('filter-codeROME').value;
+        const filteredData = selectedcodeROME === 'tous'
+            ? originalData
+            : originalData.filter(item => item.codeROME === selectedcodeROME);
+
+        displayData(filteredData);
+    };
+
+    // Afficher les données filtrées dans le tableau
+    function displayData(data) {
+        const tableBody = document.getElementById('data-table-body');
+        tableBody.innerHTML = ''; // Nettoyer les données précédentes
+
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML =  `
+                <td>${row.codeROME}</td>
+                <td>${row.codeCompetence}</td>
+                <td>${row.libelleCompetence}</td>
             `;
             tableBody.appendChild(tr);
         });
