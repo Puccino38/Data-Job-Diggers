@@ -644,6 +644,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         header: true,
         dynamicTyping: true,
         complete: function(results) {
+            console.log(results.data); // Pour déboguer et voir les données chargées
             originalData = results.data;
             fillDropdowns(originalData);
             filterData(); // Initially filter and display all data
@@ -652,7 +653,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Populate dropdown menu with unique postal codes
     function fillDropdowns(data) {
-        let uniqueCodesPostal = new Set(data.map(item => item.Code_postal));
+        let uniqueCodesPostal = new Set(data.map(item => item.Code_postal)); // Assurez-vous que 'Code_postal' correspond exactement au nom de la colonne dans le CSV
+        console.log(uniqueCodesPostal); // Pour déboguer et voir les codes postaux uniques
         let Code_postalSelect = document.getElementById('filter-Code_postal');
         
         uniqueCodesPostal.forEach(code => {
@@ -676,7 +678,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         tableBody.innerHTML = ''; // Clear previous data
         data.forEach(row => {
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Postal_Code}</td><td>${row.dpt}</td>`;
+            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Code_postal}</td><td>${row.dpt}</td>`; // Assurez-vous que les noms des propriétés correspondent à ceux du CSV
             tableBody.appendChild(tr);
         });
     }
