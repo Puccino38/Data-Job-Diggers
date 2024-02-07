@@ -354,7 +354,7 @@
     <p>La base de donnée 'La bonne boite' est mise à jour une fois par mois</p>
 
     <label for="filter-Code_postal">Code Postal :</label>
-    <select id="filter-Code_postal">
+    <select id="filter-Code_postal" onchange="filterData()">
     <option value="tous">Tous</option>
     </select>
 
@@ -631,27 +631,31 @@
 
 // filtrage et crétion des menus de la bonne boite
 <script>
+let originalData = []; // Variable globale pour stocker les données CSV
 Papa.parse('la_bonne_boite.csv', {
     download: true,
     header: true,
     complete: function(results) {
-        const originalData = results.data;
+        originalData = results.data; // Utilisez la variable globale sans "const"
         fillDropdowns(originalData);
-        filterData(); // Appelez filterData pour afficher initialement toutes les données
+        filterData(); // Appellez filterData pour afficher initialement toutes les données
     }
 });
 
 function fillDropdowns(data) {
-    const uniqueCodesPostal = new Set(data.map(row => row.Code_postal));
-    const Code_postalSelect = document.getElementById('filter-Code_postal');
+    let uniqueCodesPostal = new Set(data.map(item => item.Code_postal));
+    let Code_postalSelect = document.getElementById('filter-Code_postal');
     uniqueCodesPostal.forEach(code => {
-        Code_postalSelect.innerHTML += `<option value="${code}">${code}</option>`;
+        let option = document.createElement("option");
+        option.value = code;
+        option.text = code;
+        Code_postalSelect.appendChild(option);
     });
 }
 
 function filterData() {
     const selectedCode_postal = document.getElementById('filter-Code_postal').value;
-    const filteredData = selectedCode_postal === 'tous' ? originalData : originalData.filter(row => row.Code_postal === selectedCode_postal);
+    const filteredData = originalData.filter(item => selectedCode_postal === 'tous' || item.Code_postal === selectedCode_postal);
     displayData(filteredData);
 }
 
