@@ -612,57 +612,57 @@
 // filtrage et création des menus de la bonne boite
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    let originalData = []; // Pour stocker les données chargées
+    let originalData = []; // This will store the fetched data
 
-    // Chargement et analyse du fichier CSV
+    // Use PapaParse to load and parse the CSV file
     Papa.parse('la_bonne_boite.csv', {
         download: true,
         header: true,
+        dynamicTyping: true,
         complete: function(results) {
             originalData = results.data;
-            fillDropdowns(); // Remplir les menus déroulants après le chargement des données
-            displayData(originalData); // Afficher initialement toutes les données
+            fillDropdowns(); // Populate dropdowns after data is loaded
+            filterData(); // Initially display all data
         }
     });
 
-    // Remplir les menus déroulants avec des codes postaux uniques
+    // Populate dropdown menu with unique postal codes
     function fillDropdowns() {
-        const postalCodeSelect = document.getElementById('filter-Code_postal');
-        const uniquePostalCodes = Array.from(new Set(originalData.map(item => item.Code_postal)));
-
+        let postalCodeSelect = document.getElementById('filter-Code_postal');
+        let uniquePostalCodes = Array.from(new Set(originalData.map(item => item.Code_postal))).sort();
+        
         uniquePostalCodes.forEach(code => {
-            const option = document.createElement('option');
-            option.value = option.textContent = code;
+            let option = document.createElement('option');
+            option.value = code;
+            option.text = code;
             postalCodeSelect.appendChild(option);
         });
     }
 
-    // Filtrer les données en fonction du code postal sélectionné
-    window.filterData = function() {
-        const selectedPostalCode = document.getElementById('filter-Code_postal').value;
-        const filteredData = selectedPostalCode === 'tous'
-            ? originalData
-            : originalData.filter(item => item.Code_postal === selectedPostalCode);
+    // Attach event listener to the dropdown for change events
+    document.getElementById('filter-Code_postal').addEventListener('change', filterData);
 
+    // Filter data based on selected postal code and display
+    function filterData() {
+        const selectedCode = document.getElementById('filter-Code_postal').value;
+        const filteredData = selectedCode === 'tous' ? originalData : originalData.filter(item => item.Code_postal === selectedCode);
         displayData(filteredData);
-    };
+    }
 
-    // Afficher les données filtrées dans le tableau
+    // Display filtered data in the table
     function displayData(data) {
         const tableBody = document.getElementById('data-table-body');
-        tableBody.innerHTML = ''; // Nettoyer les données précédentes
-
-        data.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${row.ROME_Code}</td>
-                <td>${row.Nom}</td>
-                <td>${row.Adresse}</td>
-                <td>${row.Potentiel_d_embauche}</td>
-                <td>${row.Code_postal}</td>
-                <td>${row.dpt}</td>
-            `;
-            tableBody.appendChild(tr);
+        tableBody.innerHTML = ''; // Clear previous data
+        data.forEach(item => {
+            let row = `<tr>
+                <td>${item.ROME_Code}</td>
+                <td>${item.Nom}</td>
+                <td>${item.Adresse}</td>
+                <td>${item.Potentiel_d_embauche}</td>
+                <td>${item.Code_postal}</td>
+                <td>${item.dpt}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
         });
     }
 });
