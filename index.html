@@ -678,7 +678,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         tableBody.innerHTML = ''; // Clear previous data
         data.forEach(row => {
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Code_Postal}</td><td>${row.dpt}</td>`; // Assurez-vous que les noms des propriétés correspondent à ceux du CSV
+            tr.innerHTML = `<td>${row.ROME_Code}</td><td>${row.Nom}</td><td>${row.Adresse}</td><td>${row.Potentiel_d_embauche}</td><td>${row.Postal_Code}</td><td>${row.dpt}</td>`; // Assurez-vous que les noms des propriétés correspondent à ceux du CSV
             tableBody.appendChild(tr);
         });
     }
