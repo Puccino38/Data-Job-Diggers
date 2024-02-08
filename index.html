@@ -767,21 +767,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to filter and display job offers based on user selection
     function filterAndDisplayJobs() {
-        console.log("Filtering and displaying jobs...");
-        console.log("Original data:", originalData);
-        const metierValue = document.getElementById('metier').value;
-        const contratValue = document.getElementById('contrat').value;
-        const villeValue = document.getElementById('ville').value.toLowerCase();
+    const metierValue = document.getElementById('metier').value.toLowerCase().trim(); // Convertit en minuscules et supprime les espaces
+    const contratValue = document.getElementById('contrat').value.toLowerCase().trim(); // Convertit en minuscules et supprime les espaces
+    const villeValue = document.getElementById('ville').value.toLowerCase().trim(); // Convertit en minuscules et supprime les espaces
 
-        const filteredData = originalData.filter(job => {
-            const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
-            const contratMatch = contratValue === 'all' || (job.typeContrat && job.typeContrat.includes(contratValue));
-            const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
-            return metierMatch && contratMatch && villeMatch;
-        });
+    const filteredData = originalData.filter(job => {
+        // Convertit les valeurs de job en minuscules et supprime les espaces
+        const jobMetier = job.romeCode.toLowerCase().trim();
+        const jobContrat = (job.typeContrat && job.typeContrat.toLowerCase().trim()) || ''; // Vérifie si typeContrat est défini
+        const jobVille = (job.Ville && job.Ville.toLowerCase().trim()) || ''; // Vérifie si Ville est défini
 
-        displayJobOffers(filteredData); // Call the function to display the filtered job offers
-    }
+        // Compare les valeurs après conversion
+        const metierMatch = metierValue === 'all' || jobMetier === metierValue;
+        const contratMatch = contratValue === 'all' || jobContrat.includes(contratValue);
+        const villeMatch = !villeValue || jobVille.includes(villeValue);
+
+        return metierMatch && contratMatch && villeMatch;
+    });
+
+    displayJobOffers(filteredData);
+}
 
     // Function to display job offers in the HTML table
     function displayJobOffers(data) {
