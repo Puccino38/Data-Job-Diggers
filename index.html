@@ -748,37 +748,40 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- filtrage et création des menus de pole_emploi_data -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Assuming you have already loaded your DataFrame into a variable called `data`
+    let originalData = []; // Variable to store the parsed CSV data
 
-    // Convert date strings to Date objects for proper sorting
-    data.forEach(job => {
-        job.dateCreation = new Date(job.dateCreation);
-        job.dateActualisation = new Date(job.dateActualisation);
+    // Papa Parse function to load and parse the CSV file
+    Papa.parse('pole_emploi_data_bot.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            originalData = results.data; // Store the parsed data in the originalData variable
+            console.log("Original data loaded:", originalData); // Log loaded data for verification
+            // Once the data is loaded, continue with filtering and displaying jobs
+            filterAndDisplayJobs();
+        },
+        error: function(error) {
+            console.error("Error loading data:", error); // Log any errors that occur during data loading
+        }
     });
 
-    // Set up filtering logic based on dropdowns and input
-    document.getElementById('metier').addEventListener('change', filterAndDisplayJobs);
-    document.getElementById('contrat').addEventListener('change', filterAndDisplayJobs);
-    document.getElementById('ville').addEventListener('change', filterAndDisplayJobs);
-
-    // Initialize display with all data
-    displayJobOffers(data);
-
+    // Function to filter and display job offers based on user selection
     function filterAndDisplayJobs() {
         const metierValue = document.getElementById('metier').value;
         const contratValue = document.getElementById('contrat').value;
         const villeValue = document.getElementById('ville').value.toLowerCase();
 
-        const filteredData = data.filter(job => {
+        const filteredData = originalData.filter(job => {
             const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
             const contratMatch = contratValue === 'all' || (job.typeContrat && job.typeContrat.includes(contratValue));
             const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
             return metierMatch && contratMatch && villeMatch;
         });
 
-        displayJobOffers(filteredData);
+        displayJobOffers(filteredData); // Call the function to display the filtered job offers
     }
 
+    // Function to display job offers in the HTML table
     function displayJobOffers(data) {
         const container = document.getElementById('job-offers-container');
         container.innerHTML = ''; // Reset container content
@@ -787,6 +790,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Generate HTML table with job offer data
         let tableHTML = '<table>';
         tableHTML += '<thead><tr>' +
             '<th>ID</th>' +
@@ -809,28 +813,29 @@ document.addEventListener('DOMContentLoaded', () => {
         tableHTML += '<tbody>';
         data.forEach(job => {
             tableHTML += `<tr>` +
-                    `<td>${job.id}</td>` +
-                    `<td>${job.intitule}</td>` +
-                    `<td>${job.description}</td>` +
-                    `<td>${job.dateCreation.toLocaleDateString()}</td>` +
-                    `<td>${job.dateActualisation.toLocaleDateString()}</td>` +
-                    `<td>${job.origineOffre}</td>` +
-                    `<td>${job.romeCode}</td>` +
-                    `<td>${job.appellationlibelle}</td>` +
-                    `<td>${job.typeContrat}</td>` +
-                    `<td>${job.salaire}</td>` +
-                    `<td>${job.langues}</td>` +
-                    `<td>${job.permis}</td>` +
-                    `<td>${job.latitude}</td>` +
-                    `<td>${job.longitude}</td>` +
-                    `<td>${job.Departement}</td>` +
-                    `<td>${job.Ville}</td>` +
+                `<td>${job.id}</td>` +
+                `<td>${job.intitule}</td>` +
+                `<td>${job.description}</td>` +
+                `<td>${job.dateCreation}</td>` +
+                `<td>${job.dateActualisation}</td>` +
+                `<td>${job.origineOffre}</td>` +
+                `<td>${job.romeCode}</td>` +
+                `<td>${job.appellationlibelle}</td>` +
+                `<td>${job.typeContrat}</td>` +
+                `<td>${job.salaire}</td>` +
+                `<td>${job.langues}</td>` +
+                `<td>${job.permis}</td>` +
+                `<td>${job.latitude}</td>` +
+                `<td>${job.longitude}</td>` +
+                `<td>${job.Departement}</td>` +
+                `<td>${job.Ville}</td>` +
                 `</tr>`;
         });
         tableHTML += '</tbody></table>';
-        container.innerHTML = tableHTML;
+        container.innerHTML = tableHTML; // Insert the generated HTML table into the container
     }
 });
+
 </script>
 
 </body>
