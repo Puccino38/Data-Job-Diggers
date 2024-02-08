@@ -333,6 +333,7 @@
           "theme": "prism",
           "themeColor": "#2563eb"
       });
+
     </script>
     
         <div class="side-menu">
@@ -347,9 +348,9 @@
             <div class="menu-item">
                 <label for="contrat">Type de contrat:</label>
                 <select id="contrat">
-                    <option value="Contrat indeterminé">CDI</option>
-                    <option value="Contrat determinée">CDD</option>
-                    <option value="Mission d'interim">MIS</option>
+                    <option value="CDI">CDI</option>
+                    <option value="CDD">CDD</option>
+                    <option value="MIS">MIS</option>
                 </select>
             </div>
             <div class="menu-item">
@@ -761,19 +762,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ville').addEventListener('change', filterAndDisplayJobs);
 
     function filterAndDisplayJobs() {
-        const metier = document.getElementById('metier').value;
-        const contrat = document.getElementById('contrat').value;
-        const ville = document.getElementById('ville').value.toLowerCase();
-
-        // Filtrez les données en fonction des valeurs sélectionnées.
-        const filteredData = originalData.filter(job => {
-            return (metier === 'all' || job.romeCode === metier) &&
-                   (contrat === 'all' || job.typeContrat === contrat) &&
-                   (ville === '' || job.Ville.toLowerCase().includes(ville));
+    const metierValue = document.getElementById('metier').value;
+    const contratValue = document.getElementById('contrat').value;
+    const villeValue = document.getElementById('ville').value.toLowerCase();
+    console.log("Métier:", metierValue, "Contrat:", contratValue, "Ville:", villeValue);
+    const filteredData = originalData.filter(job => {
+    const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
+    const contratMatch = contratValue === 'all' || job.typeContrat === contratValue;
+    const villeMatch = !villeValue || job.Ville.toLowerCase().includes(villeValue);
+    return metierMatch && contratMatch && villeMatch;
+    console.log("Données filtrées:", filteredData);
     });
 
-        displayJobOffers(filteredData); // Affichez les données filtrées.
+    displayJobOffers(filteredData);
+    
     }
+
     function displayJobOffers(data) {
         const container = document.getElementById('job-offers-container');
         let tableHTML = '<table>';
