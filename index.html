@@ -769,7 +769,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filteredData = originalData.filter(job => {
     const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
     const contratMatch = contratValue === 'all' || job.typeContrat === contratValue;
-    const villeMatch = !villeValue || job.Ville.toLowerCase().includes(villeValue);
+    const villeMatch = !villeValue || job.Ville.includes(villeValue);
     return metierMatch && contratMatch && villeMatch;
     console.log("Données filtrées:", filteredData);
     });
@@ -783,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let tableHTML = '<table>';
         tableHTML += '<thead><tr>' +
             '<th>ID</th>' +
-            '<th>Intitulé</th>' +
+            '<th>Intitule</th>' +
             '<th>Description</th>' +
             '<th>Date de création</th>' +
             '<th>Date d\'actualisation</th>' +
