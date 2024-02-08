@@ -767,6 +767,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to filter and display job offers based on user selection
     function filterAndDisplayJobs() {
+        console.log("Filtering and displaying jobs...");
+        console.log("Original data:", originalData);
         const metierValue = document.getElementById('metier').value;
         const contratValue = document.getElementById('contrat').value;
         const villeValue = document.getElementById('ville').value.toLowerCase();
