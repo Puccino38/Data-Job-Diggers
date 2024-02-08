@@ -289,43 +289,33 @@
     <section id="dig-ton-data-job" style="display: none;">
         <h2>Dig Ton Data Job</h2>
     
-        <!-- Charger le fichier CSV en utilisant PapaParse -->
-        <script>
-            Papa.parse('filtered_data.csv', {
-                header: true, // Indiquez si la première ligne du CSV contient les en-têtes des colonnes
-                dynamicTyping: true, // Convertit automatiquement les valeurs en nombres si possible
-                download: true, // Téléchargez le fichier CSV (assurez-vous qu'il est accessible depuis votre site web)
-                complete: function (results) {
-                    var data = results.data; // Les données CSV chargées seront stockées dans cette variable
-                        
-                    // Vous pouvez maintenant traiter les données ici
-                    console.log(data); // Affiche les données dans la console
-                }
-            });
-        </script>
+        <div id="job-offers-container">
+        <!-- The table will be inserted here -->
+        </div>
+        
     
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-<script>
-  window.botpressWebChat.init({
-      "composerPlaceholder": "Trouvons des annonces ensemble",
-      "botConversationDescription": "Job digger vous aide à trouver votre futur job",
-      "botId": "96325f0e-d947-46a4-8d0e-bb2f666c82f1",
-      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
-      "messagingUrl": "https://messaging.botpress.cloud",
-      "clientId": "96325f0e-d947-46a4-8d0e-bb2f666c82f1",
-      "webhookId": "94144dfe-adbf-4966-a598-c762cd314a4b",
-      "lazySocket": true,
-      "themeName": "prism",
-      "botName": "Job digger",
-      "stylesheet": "https://csvprojet3.s3.eu-north-1.amazonaws.com/bot.css",
-      "frontendVersion": "v1",
-      "useSessionStorage": true,
-      "enableConversationDeletion": true,
-      "showPoweredBy": true,
-      "theme": "prism",
-      "themeColor": "#2563eb"
-  });
-</script>
+    <script>
+      window.botpressWebChat.init({
+          "composerPlaceholder": "Trouvons des annonces ensemble",
+          "botConversationDescription": "Job digger vous aide à trouver votre futur job",
+          "botId": "96325f0e-d947-46a4-8d0e-bb2f666c82f1",
+          "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "clientId": "96325f0e-d947-46a4-8d0e-bb2f666c82f1",
+          "webhookId": "94144dfe-adbf-4966-a598-c762cd314a4b",
+          "lazySocket": true,
+          "themeName": "prism",
+          "botName": "Job digger",
+          "stylesheet": "https://csvprojet3.s3.eu-north-1.amazonaws.com/bot.css",
+          "frontendVersion": "v1",
+          "useSessionStorage": true,
+          "enableConversationDeletion": true,
+          "showPoweredBy": true,
+          "theme": "prism",
+          "themeColor": "#2563eb"
+      });
+    </script>
     
         <div class="side-menu">
             <div class="menu-item">
@@ -735,5 +725,73 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    Papa.parse('pole_emploi_data_bot.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            const data = results.data;
+            displayJobOffers(data);
+        }
+    });
+
+    function displayJobOffers(data) {
+        const container = document.getElementById('job-offers-container');
+        let tableHTML = '<table>';
+        tableHTML += '<thead><tr>' +
+            '<th>ID</th>' +
+            '<th>Intitulé</th>' +
+            '<th>Description</th>' +
+            '<th>Date de création</th>' +
+            '<th>Date d\'actualisation</th>' +
+            '<th>Origine de l\'offre</th>' +
+            '<th>Code ROME</th>' +
+            '<th>Appellation</th>' +
+            '<th>Type de contrat</th>' +
+            '<th>Salaire</th>' +
+            '<th>Durée du travail</th>' +
+            '<th>Qualification</th>' +
+            '<th>Secteur d\'activité</th>' +
+            '<th>Langues</th>' +
+            '<th>Formations</th>' +
+            '<th>Permis</th>' +
+            '<th>Latitude</th>' +
+            '<th>Longitude</th>' +
+            '<th>Département</th>' +
+            '<th>Ville</th>' +
+            '</tr></thead>';
+        tableHTML += '<tbody>';
+        data.forEach((row) => {
+            tableHTML += `<tr>
+                <td>${row.id}</td>
+                <td>${row.intitule}</td>
+                <td>${row.description}</td>
+                <td>${row.dateCreation}</td>
+                <td>${row.dateActualisation}</td>
+                <td>${row.origineOffre}</td>
+                <td>${row.romeCode}</td>
+                <td>${row.appellationlibelle}</td>
+                <td>${row.typeContrat}</td>
+                <td>${row.salaire}</td>
+                <td>${row.dureeTravailLibelleConverti}</td>
+                <td>${row.qualificationLibelle}</td>
+                <td>${row.secteurActiviteLibelle}</td>
+                <td>${row.langues}</td>
+                <td>${row.formations}</td>
+                <td>${row.permis}</td>
+                <td>${row.latitude}</td>
+                <td>${row.longitude}</td>
+                <td>${row.Departement}</td>
+                <td>${row.Ville}</td>
+            </tr>`;
+        });
+        tableHTML += '</tbody></table>';
+        container.innerHTML = tableHTML;
+    }
+});
+</script>
+
 </body>
 </html>
