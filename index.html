@@ -765,20 +765,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ville').addEventListener('change', filterAndDisplayJobs);
 
     function filterAndDisplayJobs() {
-        const metierValue = document.getElementById('metier').value;
-        const contratValue = document.getElementById('contrat').value;
-        const villeValue = document.getElementById('ville').value.toLowerCase();
+    const metierValue = document.getElementById('metier').value;
+    const contratValue = document.getElementById('contrat').value;
+    const villeValue = document.getElementById('ville').value.toLowerCase();
 
-        // Filtrer les données en fonction des sélections
-        const filteredData = originalData.filter(job => {
-            const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
-            const contratMatch = contratValue === 'all' || job.typeContrat.includes(contratValue);
-            const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
-            return metierMatch && contratMatch && villeMatch;
-        });
+    const filteredData = originalData.filter(job => {
+        const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
+        // Assurez-vous que job.typeContrat est défini avant d'appeler includes
+        const contratMatch = contratValue === 'all' || (job.typeContrat && job.typeContrat.includes(contratValue));
+        // Assurez-vous que job.Ville est défini et est une chaîne avant de convertir en minuscules et d'appeler includes
+        const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
+        return metierMatch && contratMatch && villeMatch;
+    });
 
-        // Afficher les données filtrées
-        displayJobOffers(filteredData);
+    displayJobOffers(filteredData);
     }
 
     function displayJobOffers(data) {
