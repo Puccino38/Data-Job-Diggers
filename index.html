@@ -785,36 +785,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to display job offers in the HTML table
     function displayJobOffers(data) {
-        const container = document.getElementById('job-offers-container');
-        container.innerHTML = ''; // Reset container content
-        if (data.length === 0) {
-            container.innerHTML = "<p>No matching data found.</p>";
-            return;
-        }
+    const container = document.getElementById('job-offers-container');
+    container.innerHTML = ''; // Réinitialise le contenu du conteneur
+    if (data.length === 0) {
+        container.innerHTML = "<p>Aucune donnée correspondante trouvée.</p>";
+        return;
+    }
 
-        // Generate HTML table with job offer data
-        let tableHTML = '<table>';
-        tableHTML += '<thead><tr>' +
-            '<th>ID</th>' +
-            '<th>Intitule</th>' +
-            '<th>Description</th>' +
-            '<th>Date de création</th>' +
-            '<th>Date d\'actualisation</th>' +
-            '<th>Origine de l\'offre</th>' +
-            '<th>Code ROME</th>' +
-            '<th>Appellation</th>' +
-            '<th>Type de contrat</th>' +
-            '<th>Salaire</th>' +
-            '<th>Langues</th>' +
-            '<th>Permis</th>' +
-            '<th>Latitude</th>' +
-            '<th>Longitude</th>' +
-            '<th>Département</th>' +
-            '<th>Ville</th>' +
-            '</tr></thead>';
-        tableHTML += '<tbody>';
-        data.forEach(job => {
-            tableHTML += `<tr>` +
+    let tableHTML = '<table>';
+    tableHTML += '<thead><tr>' +
+        '<th>ID</th>' +
+        '<th>Intitule</th>' +
+        '<th>Description</th>' +
+        '<th>Date de création</th>' +
+        '<th>Date d\'actualisation</th>' +
+        '<th>Origine de l\'offre</th>' +
+        '<th>Code ROME</th>' +
+        '<th>Appellation</th>' +
+        '<th>Type de contrat</th>' +
+        '<th>Salaire</th>' +
+        '<th>Langues</th>' +
+        '<th>Permis</th>' +
+        '<th>Latitude</th>' +
+        '<th>Longitude</th>' +
+        '<th>Département</th>' +
+        '<th>Ville</th>' +
+        '</tr></thead>';
+    tableHTML += '<tbody>';
+    data.forEach(job => {
+        tableHTML += `<tr>` +
                 `<td>${job.id}</td>` +
                 `<td>${job.intitule}</td>` +
                 `<td>${job.description}</td>` +
@@ -831,11 +830,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 `<td>${job.longitude}</td>` +
                 `<td>${job.Departement}</td>` +
                 `<td>${job.Ville}</td>` +
-                `</tr>`;
-        });
-        tableHTML += '</tbody></table>';
-        container.innerHTML = tableHTML; // Insert the generated HTML table into the container
-    }
+            `</tr>`;
+    });
+    tableHTML += '</tbody></table>';
+    container.innerHTML = tableHTML;
+}
 });
 
 </script>
