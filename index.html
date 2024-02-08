@@ -745,95 +745,95 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<!-- filtrage et création des menus de pole_emploi_data -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     let originalData = [];
 
-    // Charger les données une seule fois
     Papa.parse('pole_emploi_data_bot.csv', {
         download: true,
         header: true,
         complete: function(results) {
             originalData = results.data;
-            filterAndDisplayJobs(); // Initialise l'affichage avec toutes les données
+            console.log("Original data loaded:", originalData); // Log loaded data
+            filterAndDisplayJobs(); // Initialize display with all data
+        },
+        error: function(error) {
+            console.error("Error loading data:", error);
         }
     });
 
-    // Écoutez les changements sur les menus déroulants et filtrez les données en conséquence.
     document.getElementById('metier').addEventListener('change', filterAndDisplayJobs);
     document.getElementById('contrat').addEventListener('change', filterAndDisplayJobs);
     document.getElementById('ville').addEventListener('change', filterAndDisplayJobs);
 
     function filterAndDisplayJobs() {
-    const metierValue = document.getElementById('metier').value;
-    const contratValue = document.getElementById('contrat').value;
-    const villeValue = document.getElementById('ville').value.toLowerCase();
+        const metierValue = document.getElementById('metier').value;
+        const contratValue = document.getElementById('contrat').value;
+        const villeValue = document.getElementById('ville').value.toLowerCase();
 
-    const filteredData = originalData.filter(job => {
-        const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
-        // Assurez-vous que job.typeContrat est défini avant d'appeler includes
-        const contratMatch = contratValue === 'all' || (job.typeContrat && job.typeContrat.includes(contratValue));
-        // Assurez-vous que job.Ville est défini et est une chaîne avant de convertir en minuscules et d'appeler includes
-        const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
-        return metierMatch && contratMatch && villeMatch;
-    });
+        const filteredData = originalData.filter(job => {
+            const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
+            const contratMatch = contratValue === 'all' || (job.typeContrat && job.typeContrat.includes(contratValue));
+            const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
+            return metierMatch && contratMatch && villeMatch;
+        });
 
-    displayJobOffers(filteredData);
+        console.log("Filtered data:", filteredData); // Log filtered data
+        displayJobOffers(filteredData);
     }
 
-function displayJobOffers(data) {
-    const container = document.getElementById('job-offers-container');
-    container.innerHTML = ''; // Réinitialise le contenu du conteneur
-    if (data.length === 0) {
-        container.innerHTML = "<p>Aucune donnée correspondante trouvée.</p>";
-        return;
-    }
+    function displayJobOffers(data) {
+        const container = document.getElementById('job-offers-container');
+        container.innerHTML = ''; // Reset container content
+        if (data.length === 0) {
+            container.innerHTML = "<p>No matching data found.</p>";
+            return;
+        }
 
-    let tableHTML = '<table>';
-    tableHTML += '<thead><tr>' +
-        '<th>ID</th>' +
-        '<th>Intitule</th>' +
-        '<th>Description</th>' +
-        '<th>Date de création</th>' +
-        '<th>Date d\'actualisation</th>' +
-        '<th>Origine de l\'offre</th>' +
-        '<th>Code ROME</th>' +
-        '<th>Appellation</th>' +
-        '<th>Type de contrat</th>' +
-        '<th>Salaire</th>' +
-        '<th>Langues</th>' +
-        '<th>Formations</th>' +
-        '<th>Permis</th>' +
-        '<th>Latitude</th>' +
-        '<th>Longitude</th>' +
-        '<th>Département</th>' +
-        '<th>Ville</th>' +
-        '</tr></thead>';
-    tableHTML += '<tbody>';
-    data.forEach(job => {
-        tableHTML += `<tr>` +
-                `<td>${job.id}</td>` +
-                `<td>${job.intitule}</td>` +
-                `<td>${job.description}</td>` +
-                `<td>${job.dateCreation}</td>` +
-                `<td>${job.dateActualisation}</td>` +
-                `<td>${job.origineOffre}</td>` +
-                `<td>${job.romeCode}</td>` +
-                `<td>${job.appellationlibelle}</td>` +
-                `<td>${job.typeContrat}</td>` +
-                `<td>${job.salaire}</td>` +
-                `<td>${job.langues}</td>` +
-                `<td>${job.formations}</td>` +
-                `<td>${job.permis}</td>` +
-                `<td>${job.latitude}</td>` +
-                `<td>${job.longitude}</td>` +
-                `<td>${job.Departement}</td>` +
-                `<td>${job.Ville}</td>` +
-            `</tr>`;
-    });
-    tableHTML += '</tbody></table>';
-    container.innerHTML = tableHTML;
-}
+        let tableHTML = '<table>';
+        tableHTML += '<thead><tr>' +
+            '<th>ID</th>' +
+            '<th>Intitule</th>' +
+            '<th>Description</th>' +
+            '<th>Date de création</th>' +
+            '<th>Date d\'actualisation</th>' +
+            '<th>Origine de l\'offre</th>' +
+            '<th>Code ROME</th>' +
+            '<th>Appellation</th>' +
+            '<th>Type de contrat</th>' +
+            '<th>Salaire</th>' +
+            '<th>Langues</th>' +
+            '<th>Permis</th>' +
+            '<th>Latitude</th>' +
+            '<th>Longitude</th>' +
+            '<th>Département</th>' +
+            '<th>Ville</th>' +
+            '</tr></thead>';
+        tableHTML += '<tbody>';
+        data.forEach(job => {
+            tableHTML += `<tr>` +
+                    `<td>${job.id}</td>` +
+                    `<td>${job.intitule}</td>` +
+                    `<td>${job.description}</td>` +
+                    `<td>${job.dateCreation}</td>` +
+                    `<td>${job.dateActualisation}</td>` +
+                    `<td>${job.origineOffre}</td>` +
+                    `<td>${job.romeCode}</td>` +
+                    `<td>${job.appellationlibelle}</td>` +
+                    `<td>${job.typeContrat}</td>` +
+                    `<td>${job.salaire}</td>` +
+                    `<td>${job.langues}</td>` +
+                    `<td>${job.permis}</td>` +
+                    `<td>${job.latitude}</td>` +
+                    `<td>${job.longitude}</td>` +
+                    `<td>${job.Departement}</td>` +
+                    `<td>${job.Ville}</td>` +
+                `</tr>`;
+        });
+        tableHTML += '</tbody></table>';
+        container.innerHTML = tableHTML;
+    }
 });
 </script>
 
