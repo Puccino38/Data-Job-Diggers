@@ -243,7 +243,17 @@
   background-position: center !important; /* Center the image inside the button */
   transition: background-color 0.2s; /* Make the button's background color change smoothly over a short period of time */
 }
- 
+
+.bpw-message-outgoing {
+    background-color: #9EC4A5; /* Changer la couleur de fond de la bulle */
+    color: #000; /* Changer la couleur du texte */
+}
+
+/* Styles pour les bulles de chat entrantes (messages du bot) */
+.bpw-message-incoming {
+    background-color: #9EC4A5; /* Changer la couleur de fond de la bulle */
+    color: #000; /* Changer la couleur du texte */
+} 
 /* This is the CSS style for the button that sends a message when it's not disabled and is being hovered over */
  
 .bpw-send-button:not(:disabled):hover {
