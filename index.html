@@ -185,6 +185,24 @@
         .menu-item input {
             box-sizing: border-box;
         }
+        table {
+        border-collapse: collapse; /* Assure que les bordures de cellules sont jointes */
+        width: 100%; /* Optionnel: définit la largeur de la table à 100% de son conteneur */
+        margin-bottom: 20px; /* Optionnel: ajoute un peu d'espace au bas de la table */
+    }
+
+    table, th, td {
+        border: 1px solid #000; /* Ajoute une bordure noire autour des cellules et de la table */
+    }
+
+    th, td {
+        padding: 8px; /* Ajoute un peu de padding dans les cellules pour le contenu */
+        text-align: left; /* Optionnel: aligne le texte à gauche dans les cellules */
+    }
+
+    th {
+        background-color: #f2f2f2; /* Optionnel: définit une couleur de fond pour les en-têtes de table */
+    }
     </style>
 </head>
 
