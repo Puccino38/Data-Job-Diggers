@@ -765,20 +765,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const metierValue = document.getElementById('metier').value;
     const contratValue = document.getElementById('contrat').value;
     const villeValue = document.getElementById('ville').value.toLowerCase();
-    
+    console.log("Filtres:", metierValue, contratValue, villeValue);
     const filteredData = originalData.filter(job => {
-        const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
-        const contratMatch = contratValue === 'all' || job.typeContrat === contratValue;
-        const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
-        return metierMatch && contratMatch && villeMatch;
+    const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
+    const contratMatch = contratValue === 'all' || job.typeContrat === contratValue;
+    const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
+    return metierMatch && contratMatch && villeMatch;
+    console.log("Résultat filtré:", filteredData);
     });
 
     displayJobOffers(filteredData);
 }
 
     function displayJobOffers(data) {
-        const container = document.getElementById('job-offers-container');
-        let tableHTML = '<table>';
+    const container = document.getElementById('job-offers-container');
+    container.innerHTML = ''; // Réinitialise le contenu du conteneur
+    let tableHTML = '<table>';
         tableHTML += '<thead><tr>' +
             '<th>ID</th>' +
             '<th>Intitule</th>' +
