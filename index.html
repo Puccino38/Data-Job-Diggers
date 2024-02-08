@@ -747,12 +747,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+    let originalData = [];
+
+    // Charger les données une seule fois
     Papa.parse('pole_emploi_data_bot.csv', {
         download: true,
         header: true,
         complete: function(results) {
             originalData = results.data;
-            displayJobOffers(originalData); // Affichez initialement toutes les données.
+            filterAndDisplayJobs(); // Initialise l'affichage avec toutes les données
         }
     });
 
@@ -762,24 +765,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ville').addEventListener('change', filterAndDisplayJobs);
 
     function filterAndDisplayJobs() {
-    const metierValue = document.getElementById('metier').value;
-    const contratValue = document.getElementById('contrat').value;
-    const villeValue = document.getElementById('ville').value.toLowerCase();
-    console.log("Filtres:", metierValue, contratValue, villeValue);
-    const filteredData = originalData.filter(job => {
-    const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
-    const contratMatch = contratValue === 'all' || job.typeContrat === contratValue;
-    const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
-    return metierMatch && contratMatch && villeMatch;
-    console.log("Résultat filtré:", filteredData);
-    });
+        const metierValue = document.getElementById('metier').value;
+        const contratValue = document.getElementById('contrat').value;
+        const villeValue = document.getElementById('ville').value.toLowerCase();
 
-    displayJobOffers(filteredData);
-}
+        // Filtrer les données en fonction des sélections
+        const filteredData = originalData.filter(job => {
+            const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
+            const contratMatch = contratValue === 'all' || job.typeContrat.includes(contratValue);
+            const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
+            return metierMatch && contratMatch && villeMatch;
+        });
+
+        // Afficher les données filtrées
+        displayJobOffers(filteredData);
+    }
 
     function displayJobOffers(data) {
-    const container = document.getElementById('job-offers-container');
-    container.innerHTML = ''; // Réinitialise le contenu du conteneur
+        const container = document.getElementById('job-offers-container');
+        container.innerHTML = ''; // Réinitialise le contenu du conteneur
     let tableHTML = '<table>';
         tableHTML += '<thead><tr>' +
             '<th>ID</th>' +
