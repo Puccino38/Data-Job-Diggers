@@ -750,11 +750,30 @@ document.addEventListener('DOMContentLoaded', () => {
         download: true,
         header: true,
         complete: function(results) {
-            const data = results.data;
-            displayJobOffers(data);
+            originalData = results.data;
+            displayJobOffers(originalData); // Affichez initialement toutes les données.
         }
     });
 
+    // Écoutez les changements sur les menus déroulants et filtrez les données en conséquence.
+    document.getElementById('metier').addEventListener('change', filterAndDisplayJobs);
+    document.getElementById('contrat').addEventListener('change', filterAndDisplayJobs);
+    document.getElementById('ville').addEventListener('change', filterAndDisplayJobs);
+
+    function filterAndDisplayJobs() {
+        const metier = document.getElementById('metier').value;
+        const contrat = document.getElementById('contrat').value;
+        const ville = document.getElementById('ville').value.toLowerCase();
+
+        // Filtrez les données en fonction des valeurs sélectionnées.
+        const filteredData = originalData.filter(job => {
+            return (metier === 'all' || job.romeCode === metier) &&
+                   (contrat === 'all' || job.typeContrat === contrat) &&
+                   (ville === '' || job.Ville.toLowerCase().includes(ville));
+    });
+
+        displayJobOffers(filteredData); // Affichez les données filtrées.
+    }
     function displayJobOffers(data) {
         const container = document.getElementById('job-offers-container');
         let tableHTML = '<table>';
