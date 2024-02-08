@@ -781,60 +781,59 @@ document.addEventListener('DOMContentLoaded', () => {
     displayJobOffers(filteredData);
     }
 
-    function displayJobOffers(data) {
-        const container = document.getElementById('job-offers-container');
-        container.innerHTML = ''; // Réinitialise le contenu du conteneur
-    let tableHTML = '<table>';
-        tableHTML += '<thead><tr>' +
-            '<th>ID</th>' +
-            '<th>Intitule</th>' +
-            '<th>Description</th>' +
-            '<th>Date de création</th>' +
-            '<th>Date d\'actualisation</th>' +
-            '<th>Origine de l\'offre</th>' +
-            '<th>Code ROME</th>' +
-            '<th>Appellation</th>' +
-            '<th>Type de contrat</th>' +
-            '<th>Salaire</th>' +
-            '<th>Durée du travail</th>' +
-            '<th>Qualification</th>' +
-            '<th>Secteur d\'activité</th>' +
-            '<th>Langues</th>' +
-            '<th>Formations</th>' +
-            '<th>Permis</th>' +
-            '<th>Latitude</th>' +
-            '<th>Longitude</th>' +
-            '<th>Département</th>' +
-            '<th>Ville</th>' +
-            '</tr></thead>';
-        tableHTML += '<tbody>';
-        data.forEach((row) => {
-            tableHTML += `<tr>
-                <td>${row.id}</td>
-                <td>${row.intitule}</td>
-                <td>${row.description}</td>
-                <td>${row.dateCreation}</td>
-                <td>${row.dateActualisation}</td>
-                <td>${row.origineOffre}</td>
-                <td>${row.romeCode}</td>
-                <td>${row.appellationlibelle}</td>
-                <td>${row.typeContrat}</td>
-                <td>${row.salaire}</td>
-                <td>${row.dureeTravailLibelleConverti}</td>
-                <td>${row.qualificationLibelle}</td>
-                <td>${row.secteurActiviteLibelle}</td>
-                <td>${row.langues}</td>
-                <td>${row.formations}</td>
-                <td>${row.permis}</td>
-                <td>${row.latitude}</td>
-                <td>${row.longitude}</td>
-                <td>${row.Departement}</td>
-                <td>${row.Ville}</td>
-            </tr>`;
-        });
-        tableHTML += '</tbody></table>';
-        container.innerHTML = tableHTML;
+function displayJobOffers(data) {
+    const container = document.getElementById('job-offers-container');
+    container.innerHTML = ''; // Réinitialise le contenu du conteneur
+    if (data.length === 0) {
+        container.innerHTML = "<p>Aucune donnée correspondante trouvée.</p>";
+        return;
     }
+
+    let tableHTML = '<table>';
+    tableHTML += '<thead><tr>' +
+        '<th>ID</th>' +
+        '<th>Intitule</th>' +
+        '<th>Description</th>' +
+        '<th>Date de création</th>' +
+        '<th>Date d\'actualisation</th>' +
+        '<th>Origine de l\'offre</th>' +
+        '<th>Code ROME</th>' +
+        '<th>Appellation</th>' +
+        '<th>Type de contrat</th>' +
+        '<th>Salaire</th>' +
+        '<th>Langues</th>' +
+        '<th>Formations</th>' +
+        '<th>Permis</th>' +
+        '<th>Latitude</th>' +
+        '<th>Longitude</th>' +
+        '<th>Département</th>' +
+        '<th>Ville</th>' +
+        '</tr></thead>';
+    tableHTML += '<tbody>';
+    data.forEach(job => {
+        tableHTML += `<tr>` +
+                `<td>${job.id}</td>` +
+                `<td>${job.intitule}</td>` +
+                `<td>${job.description}</td>` +
+                `<td>${job.dateCreation}</td>` +
+                `<td>${job.dateActualisation}</td>` +
+                `<td>${job.origineOffre}</td>` +
+                `<td>${job.romeCode}</td>` +
+                `<td>${job.appellationlibelle}</td>` +
+                `<td>${job.typeContrat}</td>` +
+                `<td>${job.salaire}</td>` +
+                `<td>${job.langues}</td>` +
+                `<td>${job.formations}</td>` +
+                `<td>${job.permis}</td>` +
+                `<td>${job.latitude}</td>` +
+                `<td>${job.longitude}</td>` +
+                `<td>${job.Departement}</td>` +
+                `<td>${job.Ville}</td>` +
+            `</tr>`;
+    });
+    tableHTML += '</tbody></table>';
+    container.innerHTML = tableHTML;
+}
 });
 </script>
 
