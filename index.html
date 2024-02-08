@@ -747,77 +747,40 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- filtrage et création des menus de pole_emploi_data -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    let originalData = []; // Variable to store the parsed CSV data
-
-    // Papa Parse function to load and parse the CSV file
+    // Charger directement les données sans filtrage
     Papa.parse('pole_emploi_data_bot.csv', {
         download: true,
         header: true,
         complete: function(results) {
-            originalData = results.data; // Store the parsed data in the originalData variable
-            console.log("Original data loaded:", originalData); // Log loaded data for verification
-            // Once the data is loaded, continue with filtering and displaying jobs
-            filterAndDisplayJobs();
-        },
-        error: function(error) {
-            console.error("Error loading data:", error); // Log any errors that occur during data loading
+            displayJobOffers(results.data); // Affiche toutes les données sans filtrage
         }
     });
 
-    // Function to filter and display job offers based on user selection
-    function filterAndDisplayJobs() {
-    const metierValue = document.getElementById('metier').value.toLowerCase().trim(); // Convertit en minuscules et supprime les espaces
-    const contratValue = document.getElementById('contrat').value.toLowerCase().trim(); // Convertit en minuscules et supprime les espaces
-    const villeValue = document.getElementById('ville').value.toLowerCase().trim(); // Convertit en minuscules et supprime les espaces
-
-    const filteredData = originalData.filter(job => {
-        // Convertit les valeurs de job en minuscules et supprime les espaces
-        const jobMetier = job.romeCode.toLowerCase().trim();
-        const jobContrat = (job.typeContrat && job.typeContrat.toLowerCase().trim()) || ''; // Vérifie si typeContrat est défini
-        const jobVille = (job.Ville && job.Ville.toLowerCase().trim()) || ''; // Vérifie si Ville est défini
-
-        // Compare les valeurs après conversion
-        const metierMatch = metierValue === 'all' || jobMetier === metierValue;
-        const contratMatch = contratValue === 'all' || jobContrat.includes(contratValue);
-        const villeMatch = !villeValue || jobVille.includes(villeValue);
-
-        return metierMatch && contratMatch && villeMatch;
-    });
-
-    displayJobOffers(filteredData);
-}
-
-    // Function to display job offers in the HTML table
+    // Fonction pour afficher les offres d'emploi dans la table
     function displayJobOffers(data) {
-    const container = document.getElementById('job-offers-container');
-    container.innerHTML = ''; // Réinitialise le contenu du conteneur
-    if (data.length === 0) {
-        container.innerHTML = "<p>Aucune donnée correspondante trouvée.</p>";
-        return;
-    }
-
-    let tableHTML = '<table>';
-    tableHTML += '<thead><tr>' +
-        '<th>ID</th>' +
-        '<th>Intitule</th>' +
-        '<th>Description</th>' +
-        '<th>Date de création</th>' +
-        '<th>Date d\'actualisation</th>' +
-        '<th>Origine de l\'offre</th>' +
-        '<th>Code ROME</th>' +
-        '<th>Appellation</th>' +
-        '<th>Type de contrat</th>' +
-        '<th>Salaire</th>' +
-        '<th>Langues</th>' +
-        '<th>Permis</th>' +
-        '<th>Latitude</th>' +
-        '<th>Longitude</th>' +
-        '<th>Département</th>' +
-        '<th>Ville</th>' +
-        '</tr></thead>';
-    tableHTML += '<tbody>';
-    data.forEach(job => {
-        tableHTML += `<tr>` +
+        const container = document.getElementById('job-offers-container');
+        let tableHTML = '<table>';
+        tableHTML += '<thead><tr>' +
+            '<th>ID</th>' +
+            '<th>Intitule</th>' +
+            '<th>Description</th>' +
+            '<th>Date de création</th>' +
+            '<th>Date d\'actualisation</th>' +
+            '<th>Origine de l\'offre</th>' +
+            '<th>Code ROME</th>' +
+            '<th>Appellation</th>' +
+            '<th>Type de contrat</th>' +
+            '<th>Salaire</th>' +
+            '<th>Langues</th>' +
+            '<th>Permis</th>' +
+            '<th>Latitude</th>' +
+            '<th>Longitude</th>' +
+            '<th>Département</th>' +
+            '<th>Ville</th>' +
+            '</tr></thead><tbody>';
+        
+        data.forEach(job => {
+            tableHTML += `<tr>` +
                 `<td>${job.id}</td>` +
                 `<td>${job.intitule}</td>` +
                 `<td>${job.description}</td>` +
@@ -835,12 +798,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 `<td>${job.Departement}</td>` +
                 `<td>${job.Ville}</td>` +
             `</tr>`;
-    });
-    tableHTML += '</tbody></table>';
-    container.innerHTML = tableHTML;
-}
-});
+        });
 
+        tableHTML += '</tbody></table>';
+        container.innerHTML = tableHTML; // Afficher la table complète dans le conteneur
+    }
+});
 </script>
 
 </body>
