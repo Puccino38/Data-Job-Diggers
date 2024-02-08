@@ -765,18 +765,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const metierValue = document.getElementById('metier').value;
     const contratValue = document.getElementById('contrat').value;
     const villeValue = document.getElementById('ville').value.toLowerCase();
-    console.log("Métier:", metierValue, "Contrat:", contratValue, "Ville:", villeValue);
+    
     const filteredData = originalData.filter(job => {
-    const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
-    const contratMatch = contratValue === 'all' || job.typeContrat === contratValue;
-    const villeMatch = !villeValue || job.Ville.includes(villeValue);
-    return metierMatch && contratMatch && villeMatch;
-    console.log("Données filtrées:", filteredData);
+        const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
+        const contratMatch = contratValue === 'all' || job.typeContrat === contratValue;
+        const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
+        return metierMatch && contratMatch && villeMatch;
     });
 
     displayJobOffers(filteredData);
-    
-    }
+}
 
     function displayJobOffers(data) {
         const container = document.getElementById('job-offers-container');
