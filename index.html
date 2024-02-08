@@ -748,38 +748,34 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- filtrage et création des menus de pole_emploi_data -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    let originalData = [];
+    // Assuming you have already loaded your DataFrame into a variable called `data`
 
-    Papa.parse('pole_emploi_data_bot.csv', {
-        download: true,
-        header: true,
-        complete: function(results) {
-            originalData = results.data;
-            console.log("Original data loaded:", originalData); // Log loaded data
-            filterAndDisplayJobs(); // Initialize display with all data
-        },
-        error: function(error) {
-            console.error("Error loading data:", error);
-        }
+    // Convert date strings to Date objects for proper sorting
+    data.forEach(job => {
+        job.dateCreation = new Date(job.dateCreation);
+        job.dateActualisation = new Date(job.dateActualisation);
     });
 
+    // Set up filtering logic based on dropdowns and input
     document.getElementById('metier').addEventListener('change', filterAndDisplayJobs);
     document.getElementById('contrat').addEventListener('change', filterAndDisplayJobs);
     document.getElementById('ville').addEventListener('change', filterAndDisplayJobs);
+
+    // Initialize display with all data
+    displayJobOffers(data);
 
     function filterAndDisplayJobs() {
         const metierValue = document.getElementById('metier').value;
         const contratValue = document.getElementById('contrat').value;
         const villeValue = document.getElementById('ville').value.toLowerCase();
 
-        const filteredData = originalData.filter(job => {
+        const filteredData = data.filter(job => {
             const metierMatch = metierValue === 'all' || job.romeCode === metierValue;
             const contratMatch = contratValue === 'all' || (job.typeContrat && job.typeContrat.includes(contratValue));
             const villeMatch = !villeValue || (job.Ville && job.Ville.toLowerCase().includes(villeValue));
             return metierMatch && contratMatch && villeMatch;
         });
 
-        console.log("Filtered data:", filteredData); // Log filtered data
         displayJobOffers(filteredData);
     }
 
@@ -816,8 +812,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     `<td>${job.id}</td>` +
                     `<td>${job.intitule}</td>` +
                     `<td>${job.description}</td>` +
-                    `<td>${job.dateCreation}</td>` +
-                    `<td>${job.dateActualisation}</td>` +
+                    `<td>${job.dateCreation.toLocaleDateString()}</td>` +
+                    `<td>${job.dateActualisation.toLocaleDateString()}</td>` +
                     `<td>${job.origineOffre}</td>` +
                     `<td>${job.romeCode}</td>` +
                     `<td>${job.appellationlibelle}</td>` +
